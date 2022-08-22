@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=, initial-scale=1.0"> -->
+    <title>丁丁丁哇</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        display: block;
+        list-style: none;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        background-color: aqua;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        position: fixed;
+        right: 10px;
+        bottom: 100px;
+        opacity: 0;
+    }
+
+    .shell {
+        height: 100vh;
+        overflow-x: hidden;
+        perspective: 3px;
+    }
+
+    .shell div {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-style: 30px;
+        letter-spacing: 2px;
+    }
+
+    .image {
+        transform: translateZ(-1px) scale(1.6);
+        background-size: cover;
+        height: 100vh;
+        z-index: -1;
+    }
+
+    .text {
+        height: 50vh;
+        background-color: #fff;
+    }
+
+    .text h1 {
+        color: #000;
+    }
+
+    .heading {
+        z-index: -1;
+        transform: translateY(-30vh) translateZ(1px);
+        color: #fff;
+        font-size: 30px;
+    }
+</style>
+
+<body>
+    <div class="shell">
+        <div class="image" style="background-image: url('./1.jpg');"></div>
+        <div class="heading">
+            <h1>When you are confused</h1>
+        </div>
+        <div class="text">
+            <h1>Set goals in your mind</h1>
+        </div>
+
+        <div class="image" style="background-image: url('./2.jpg');"></div>
+        <div class="heading">
+            <h1>When you're down</h1>
+        </div>
+        <div class="text">
+            <h1>Try to wake up the beast in your heart</h1>
+        </div>
+
+        <div class="image" style="background-image: url('./3.jpg');"></div>
+        <div class="heading">
+            <h1>When prople leave you</h1>
+        </div>
+        <div class="text">
+            <h1>It's time to start your season</h1>
+        </div>
+
+        <div class="image" style="background-image: url('./4.jpg');"></div>
+        <div class="heading">
+            <h1>Come on,stranger.</h1>
+        </div>
+    </div>
+    <ul id="box">
+        <li data-id="0">1</li>
+        <li data-id="950">2</li>
+        <li data-id="2671">3</li>
+    </ul>
+</body>
+<script>
+    let box = document.getElementById("box")
+    let html = document.documentElement || document.body
+    let liList = box.querySelectorAll('li')
+    window.onscroll = function () {
+        if (html.scrollTop > 50) {
+            box.style.opacity = 1
+        } else {
+            box.style.opacity = 0
+        }
+    }
+
+    window.onclick = function (e) {
+        console.log(e)
+    }
+    let timer = null, speed = 50
+    liList.forEach(li => {
+        li.onclick = function () {
+            let distance = li.getAttribute('data-id')
+            if (timer == null) {
+                if (distance <= html.scrollTop) {
+                    timer = setInterval(function () {
+                        if (html.scrollTop <= distance) {
+                            clearInterval(timer)
+                            timer = null
+                            html.scrollTop = distance
+                            return
+                        }
+                        html.scrollTop -= speed
+                    }, 10)
+                }
+                if (distance > html.scrollTop) {
+                    timer = setInterval(function () {
+                        if (html.scrollTop >= distance) {
+                            clearInterval(timer)
+                            timer = null
+                            html.scrollTop = distance
+                            return
+                        }
+                        html.scrollTop += speed
+                    }, 10)
+                }
+
+
+            }
+        }
+    })
+</script>
+
+</html>

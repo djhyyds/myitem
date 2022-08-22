@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 500vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    #box {
+      width: 500px;
+      height: 50px;
+      background-color: black;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #box>.box {
+      position: absolute;
+      width: 2000px;
+      height: 50px;
+      background-color: aquamarine;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div class="box"></div>
+  </div>
+</body>
+<script>
+  let Box = document.getElementsByClassName('box')
+  Box[0].onclick = function () {
+    box.style.height = 150 + 'px'
+  }
+</script>
+
+</html>

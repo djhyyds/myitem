@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>彭科罗三角</title>
+  <link rel="stylesheet" href="./vs2015.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="./highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+  <div class="container">
+    <ul>
+      <li class="li">HTML</li>
+      <li class="li">CSS</li>
+      <li class="li">JS</li>
+    </ul>
+    <pre><code class="html">
+      &lt;div class="shell">
+      &lt;div class="wrapper">
+          &lt;div class="a">&lt;/div>
+          &lt;div class="b">&lt;/div>
+          &lt;div class="c">&lt;/div>
+      &lt;/div>
+      &lt;div class="wrapper2">
+          &lt;div class="a">&lt;/div>
+          &lt;div class="b">&lt;/div>
+          &lt;div class="c">&lt;/div>
+          &lt;div class="d">&lt;/div>
+          &lt;div class="e">&lt;/div>
+          &lt;div class="f">&lt;/div>
+      &lt;/div>
+      &lt;div class="wrapper3">
+          &lt;div class="a">&lt;/div>
+          &lt;div class="b">&lt;/div>
+          &lt;div class="c">&lt;/div>
+      &lt;/div>
+  &lt;/div> 
+  </code></pre>
+    <pre><code class="css">
+      .shell {
+        position: relative;
+        left: -170px;
+        top: 150px;
+    }
+    .a,
+    .b,
+    .c {
+        position: absolute;
+        height: 300px;
+        width: 30px;
+        background-color: #333;
+        top: 49px;
+        left: 0px;
+        transform: rotate(60deg)skew(30deg);
+    }
+    .b {
+        background-color: #aaa;
+        top: 36px;
+        left: 180px;
+        transform: rotate(180deg)skew(30deg);
+    }
+    .c {
+        background-color: #666;
+        top: 199px;
+        left: 101px;
+        transform: rotate(-60deg)skew(30deg);
+    }
+    .c::after,
+    .b::after,
+    .a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 278px;
+        left: 165px;
+        top: -140px;
+        transform: rotate(-90deg)skew(0deg);
+        border-bottom: 23px solid transparent;
+        border-right: 20px solid #333;
+        transition: .5s;
+    }
+
+    .b::after {
+        border-right: 20px solid #aaa;
+    }
+
+    .c::after {
+        border-right: 20px solid #666;
+    }
+
+    .wrapper2 {
+        position: absolute;
+        transform: scale(0.5);
+        margin-left: 56px;
+        margin-top: 121px;
+    }
+
+    .wrapper3 {
+        position: absolute;
+        transform: scale(0.22);
+        margin-left: 88px;
+        margin-top: 188px;
+    }
+
+    .d,
+    .e,
+    .f {
+        position: absolute;
+        background-color: #333;
+        width: 130px;
+        height: 25px;
+        top: 270px;
+        left: -160px;
+        transform: rotate(60deg)skew(30deg);
+    }
+
+    .e {
+        background-color: #666;
+        top: 400px;
+        left: 173px;
+        transform: rotate(120deg)skew(30deg);
+    }
+
+    .f {
+        background-color: #aaa;
+        top: 35px;
+        left: 100px;
+        transform: rotate(180deg)skew(30deg);
+    }
+
+    .shell:hover .a::after,
+    .shell:hover .b::after,
+    .shell:hover .c::after {
+        height: 290px;
+        top: 31px;
+        left: 76px;
+    }
+   </code></pre>
+    <pre><code class="js">
+ 
+  </code></pre>
+    <iframe style="margin:13px" src="../彭科罗三角.html" frameborder="1" allow="fullscreen" width="550px"
+      height="550px" scrolling="no"></iframe>
+  </div>
+</body>
+<script src="./script.js"></script>
+
+</html>

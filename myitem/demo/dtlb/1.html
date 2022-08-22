@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            position: absolute;
+            z-index: 9;
+            width: 300px;
+            overflow: hidden;
+        }
+
+        .dd {
+
+            display: flex;
+            width: 1200px;
+            animation: lb 4s steps(4) infinite;
+        }
+
+        .d {
+            width: 300px;
+        }
+
+        .xx {
+            width: 200px;
+
+        }
+
+        .xxx {
+            position: relative;
+            left: 300px;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .x {
+            height: 528px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .lb {
+            display: flex;
+        }
+
+        .xxx:nth-child(1) {
+            width: 200px;
+            background-image: url(./img/d1.jpg);
+            background-size: cover;
+            background-position: 0 -40px;
+            animation: xlb 4s ease running infinite;
+        }
+
+        .xxx:nth-child(2) {
+            width: 200px;
+            background-image: url(./img/d2.jpg);
+            background-size: cover;
+            background-position: 0 -80px;
+            animation: xlb 4s 1s infinite;
+        }
+
+        .xxx:nth-child(3) {
+            width: 200px;
+            background-image: url(./img/d3.jpg);
+            background-size: cover;
+            background-position: 0 -40px;
+            animation: xlb 4s 2s infinite;
+        }
+
+        .xxx:nth-child(4) {
+            width: 200px;
+            background-image: url(./img/d7.jpg);
+            background-size: cover;
+            background-position: 0 -100px;
+            animation: xlb 4s 3s infinite;
+        }
+
+        @keyframes xlb {
+            to {
+                transform: translateX(-200px);
+            }
+        }
+
+        @keyframes lb {
+
+            to {
+                transform: translateX(-1200px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lb">
+        <section>
+            <div class="dd">
+                <div><img class="d" src="./img/d1.jpg" alt=""></div>
+                <div><img class="d" src="./img/d2.jpg" alt=""></div>
+                <div><img class="d" src="./img/d3.jpg" alt=""></div>
+                <div><img class="d" src="./img/d7.jpg" alt="d"></div>
+            </div>
+        </section>
+        <div class="x">
+            <div class="xxx"></div>
+            <div class="xxx"></div>
+            <div class="xxx"></div>
+            <div class="xxx"></div>
+        </div>
+    </div>
+</body>
+<script>
+
+</script>
+
+</html>

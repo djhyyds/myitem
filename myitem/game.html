@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/nav.css">
+  <link rel="stylesheet" href="./css/all.css">
+  <link rel="stylesheet" href="./css/game.css">
+  <link rel="stylesheet" href="./demo/代码块.html/vs2015.min.css">
+  <link rel="stylesheet" href="./demo/代码块.html/style.css">
+  <script src="./demo/代码块.html/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <style>
+    a {
+      text-decoration: none;
+    }
+
+    body .shell-main-nav ul .nav-box {
+      left: 480px;
+      background-color: #ffb1b1;
+    }
+
+    body .shell-main-nav {
+      width: 100%;
+      height: 60px;
+      position: sticky;
+      z-index: 999;
+      top: 0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      margin-bottom: 12vh;
+      background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6));
+      backdrop-filter: blur(13px);
+    }
+
+    body .shell-main-nav .logo {
+      width: 220px;
+      height: 100%;
+      position: absolute;
+      left: 5%;
+      justify-content: space-between;
+      display: flex;
+      align-items: center;
+    }
+
+    body .shell-main-nav .logo img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+    }
+
+    body .shell-main-nav .logo span {
+      font: 100 22px 'font';
+      letter-spacing: 2px;
+    }
+
+    body .shell-main-nav ul {
+      width: 600px;
+      height: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      position: absolute;
+      right: 5%;
+    }
+
+    body .shell-main-nav ul .nav-box {
+      position: absolute;
+      bottom: 1px;
+
+      width: 115px;
+      height: 5px;
+      border-radius: 2px;
+      z-index: -999;
+      transition: .5s;
+    }
+
+    body .shell-main-nav ul li {
+      width: 150px;
+      text-align: center;
+    }
+
+    body .shell-main-nav ul li a {
+      color: #000;
+      display: block;
+      width: 100%;
+      height: 100%;
+      line-height: 60px;
+      text-align: center;
+    }
+
+    body .shell-main-nav ul li:nth-child(1):hover~.nav-box {
+      left: 0;
+      background-color: aquamarine;
+    }
+
+    body .shell-main-nav ul li:nth-child(2):hover~.nav-box {
+      left: 120px;
+      background-color: red;
+    }
+
+    body .shell-main-nav ul li:nth-child(3):hover~.nav-box {
+      left: 240px;
+      background-color: #8da1f8;
+    }
+
+    body .shell-main-nav ul li:nth-child(4):hover~.nav-box {
+      left: 360px;
+      background-color: #ffb1b1;
+    }
+
+    body .shell-main-nav ul li:nth-child(5):hover~.nav-box {
+      left: 480px;
+      background-color: #7df88e;
+    }
+    .container{
+      padding-bottom: 100px;
+    }
+   
+  </style>
+</head>
+
+<body>
+  <div class="shell-main-nav">
+    <div class="logo">
+      <a href="./index.html">
+        <img src="./image/loge.webp" alt="">
+        <span>丁丁丁哇</span>
+      </a>
+    </div>
+    <ul>
+      <li><a href="./Login2.html">登录</a></li>
+      <li><a href="./Template.html">网页模板</a></li>
+      <li><a href="css.html">CSS 特效</a></li>
+      <li><a href="./js.html">JS 组件</a></li>
+      <li><a href="game.html">JS 游戏</a></li>        
+      <div class="nav-box"></div>
+  </ul>
+  </div>
+
+  <div class="container">
+    <h1>谁说JS不能开发游戏</h1>
+    <p>
+      相信每一个喜欢玩游戏的人,心中一定有过自己去开发一款游戏的想法。然后在我在网上找了大量资料后，终于在bilibili上发现了一位外国大佬<span>不使用任何框架和组件,100%原生JS</span>开发游戏，完全适合初学者用来加深自己对于原生JS的掌握的教程
+    </p>
+    <p>大家可以体验一下我开发的两款游戏o(*￣▽￣*)ブ <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第一款是一个十分简单的横版跑酷游戏,你将扮演一头小地狱犬,不停向前奔跑,要注意躲避沿途的怪物哟,当然你身为地狱犬肯定有攻击手段,摁住 <span>回车键</span>
+      你将化身愤怒的火球,烧尽一切阻挡你前进的怪物.你需要在规定的时间内取得更高的分数.当然你如果是一名游戏高玩也可以尝试不使用攻击手段来坚持到时间结束.但是因为本人第一次开发这类游戏,所有动作逻辑还不是很合理,我不觉得会给你带来多好的游戏体验/(ㄒoㄒ)/~~
+    </p>
+    <iframe src="./js游戏/game/index.html" width="1000px" height="600px" frameborder="0" class="iframe1"></iframe>
+    <p>第二款游戏是一个简单的射击游戏你只需要保证，没有一只乌鸦可以逃出你的枪下就行了(ps:本人游戏残废，每次都打不到100分ಥ_ಥ)</p>
+    <iframe src="./js游戏/射击游戏/index.html" width="1000px" height="600px" frameborder="0" class="iframe2"></iframe>
+
+    <p>我其实很想来专门做个教学来教大家如何来使用js去开发游戏，奈何本人能力有限，仅仅我写的开发游戏过程的代码就已几千行，实在不知道怎么可以很好的展示出来，在此就先挖个坑，等我有能力之后一定会出一个详细的教学</p>
+  </div>
+ 
+</body>
+<script src="./demo/代码块.html/script.js"></script>
+
+</html>

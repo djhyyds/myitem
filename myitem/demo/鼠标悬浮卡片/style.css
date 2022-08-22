@@ -1,0 +1,44 @@
+.code {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  transform-style: preserve-3d;
+  perspective: 800px; 
+  margin: 0 auto;
+  margin-top: 150px;
+}
+
+.ka {
+  width: 270px;
+  height: 355px;
+  box-sizing: border-box;
+  margin: 20px;
+  padding: 0;
+  border: 5px solid #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: -30px;
+}
+
+.ka.k {
+  background-position: -40px;
+}
+
+.code:hover > .ka {
+  transform: rotatey(40deg);
+  transition: 0.3s;
+}
+
+.code > .ka:hover {
+  transform: rotatey(0deg) scale(1.15);
+  box-shadow: 0 25px 30px rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.code > .ka:hover ~ .ka {
+  transform: rotatey(-40deg);
+  transition: 0.3s;
+}

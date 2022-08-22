@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="v_code">
+    <div class="code_show">
+      <span class="code" id="checkCode">adf34y</span>
+      <a id="linkbt">看不清换下一张</a>
+    </div>
+    <div class="input_code">
+      <label for="inputCode">验证码：</label>
+      <input type="text" id="inputCode">
+      <span id="text_show"></span>
+    </div>
+    <input id="Button1" type="text" value="确定">
+  </div>
+</body>
+<script>
+  //1.生成验证码
+  //2.6位数 随机生成
+  //3. 验证
+  window.onload = function () {
+    let res = getCode()
+    function getCode () {
+      let arr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "a", "b", "c", "d", "e", "f", "g", "h"]
+      let str = ''
+      for (let i = 0; i < 6; i++) {
+        let num = Math.round(Math.random() * 17)
+        str += arr[num]
+      }
+      return str
+    }
+    document.getElementById('checkCode').innerHTML = res
+    //点击事件
+    document.getElementById('linkbt').onclick = function () {
+      document.getElementById('checkCode').innerHTML = getCode()
+    }
+    //提交进行对比
+    document.getElementById('Button1').onclick = function () {
+      console.log(1211)
+      let code = document.getElementById('checkCode').innerText
+      let inputCode = document.getElementById('inputCode').value
+      console.log(code, inputCode)
+      if (code != inputCode) {
+        alert('验证码错误'); return false
+      }
+    }
+  }
+
+
+</script>
+
+</html>

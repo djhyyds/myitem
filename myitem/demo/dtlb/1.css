@@ -1,0 +1,53 @@
+.a {
+    position: relative;
+    width: 600px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.b {
+    width: 341px;
+    transition: .4s;
+    background-size: cover;
+
+
+}
+
+.c {
+    width: 200px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.d {
+    position: relative;
+    width: 200px;
+    height: 110px;
+    right: 0;
+    transition: .5s;
+    overflow: hidden;
+}
+
+.d img {
+    position: absolute;
+    width: 200px;
+    transform: translate(0, -70px);
+    transition: .5s;
+    right: 0;
+}
+
+.div>.q {
+    transform: translate(0, -10px);
+}
+
+.d.dd {
+    opacity: 0;
+    right: 250px;
+}
+
+.d:hover img {
+    opacity: 0;
+    right: 250px;
+}

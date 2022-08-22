@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .barrager {
+      width: 500px;
+      height: 300px;
+      background: #000;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+      overflow: hidden;
+    }
+
+    .barrager div {
+      right: 10px;
+      position: absolute;
+      color: #fff;
+    }
+
+    .addBarrager {
+      background: #f4f4f4;
+      width: 380px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px auto;
+      border-radius: 3px;
+      border: 1px solid #e7e7e7;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 80%;
+
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+    }
+
+    input {
+      height: 32px;
+      width: 75%;
+      border: none;
+      background: transparent;
+      font-size: 12px;
+      line-height: 32px;
+      /* 文本缩进 */
+      text-indent: 10px;
+      /* 去掉边框颜色 */
+      outline: medium;
+    }
+
+    .submit {
+      background: #00b5e5;
+      right: 0;
+      top: -1px;
+      border: none;
+      outline: medium;
+      height: 37px;
+      width: 22%;
+      color: #fff;
+      cursor: pointer;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="barrager" id="barrager">
+    <video src="mp4.mp4" autoplay controls muted id="video"></video>
+    <div>没错你卡了</div>
+    <div>前方高能</div>
+    <div>前方高能</div>
+    <div>前方高能</div>
+    <div>前方高能</div>
+    <div>前方高能</div>
+    <div>前方高能</div>
+    <div>前方高能</div>
+    <div>前方高能</div>
+    <div>前方高能</div>
+  </div>
+  <div class="addBarrager">
+    <input type="text" id="val">
+    <button class="submit">发布</button>
+  </div>
+</body>
+<script>
+  (function () {
+    video.onload = function () {
+      video.play()
+    }
+    function getStyle (dom, attr) {
+      return getComputedStyle(dom, false)[attr]
+    }
+    function animationF (dom, attr, target, speed) {
+      clearInterval(dom.timer)
+      dom.timer = setInterval(function () {
+        var cur = 0
+        cur = parseInt(getStyle(dom, attr))
+        speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
+        //动画结束
+        if (cur == target) {
+          clearInterval(dom.timer)
+        } else {
+          dom.style[attr] = cur + speed + 'px'
+        }
+      }, 30)
+    }
+    //弹幕构造函数
+    function Barrager (ele) {
+      this.options = {
+        color: ['#ff9999', '#35d2f4', '#9ee353', '#9d77ff'],
+        dom: ele
+      }
+      this._init()
+    }
+
+    Barrager.prototype = {
+      addF: function (newDom) {
+        this.options.dom.appendChild(newDom)
+        newDom.style.top = this.getRandomTop() + 'px'
+        newDom.style.color = this.getRandomColor()
+        newDom.style.fontSize = this.getRandomSize() + 'px'
+        newDom.style.right = 0 + 'px'
+        let dom = this.options.dom
+        let item = dom.getElementsByTagName('div')
+        let len = item.length
+        this.randomMove(len - 1)
+      },
+      _init: function () {
+        let dom = this.options.dom
+        let item = dom.getElementsByTagName('div')
+        let len = item.length
+        for (let i = 0; i < len; i++) {
+          item[i].style.top = this.getRandomTop() + 'px'
+          item[i].style.color = this.getRandomColor()
+          item[i].style.fontSize = this.getRandomSize() + 'px'
+          item[i].style.right = -item[i].clientWidth + 'px'
+        }
+        this.randomMove(0, true)
+      },
+      //弹幕移动
+      randomMove: function (n, flag) {
+        let _this = this
+        let dom = this.options.dom
+        let items = dom.getElementsByTagName('div')
+        let len = items.length
+        //第一遍定时器
+        if (flag && n < len - 1) {
+          let i = n + 1
+          _this.randomMove(i, true)
+        }
+        let item = items[n]
+        //元素自身宽度
+        let w = item.clientWidth
+        let t = this.getRandomTime()
+        let cur = parseInt(getStyle(item, 'right'))
+        let speed = 30 * (w + cur) / t
+        animationF(item, 'right', -w, speed)
+        setTimeout(function () {
+          item.style.right = ``
+          _this.randomMove(n)
+        }, t)
+      },
+
+      //返回随机颜色
+      getRandomColor: function () {
+        let max = this.options.color.length
+        let randomNum = Math.floor(Math.random() * max)
+        return this.options.color[randomNum]
+      },
+      //返回TOP 
+      getRandomTop: function () {
+        var top = (Math.random() * 200).toFixed(1)
+        return top
+      },
+      //返回字体
+      getRandomSize: function () {
+        var size = (10 + Math.random() * 10)
+        return size
+      },
+      //返回时间
+      getRandomTime: function () {
+        let time = Math.floor((3 + Math.random() * 10))
+        return time * 1000
+      }
+    }
+    let bar = new Barrager(document.getElementById('barrager'))
+
+    document.querySelector('.submit').addEventListener('click', function () {
+      let valDom = document.getElementById('val')
+      if (valDom.value == '') {
+        return
+      }
+      let newDom = document.createElement('div')
+      newDom.innerHTML = valDom.value
+      valDom.value = ""
+      bar.addF(newDom)
+    }
+    )
+  })()
+</script>
+
+</html>

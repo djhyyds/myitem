@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>聊天对话框</title>
+  <style type="text/css">
+    #container {
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      height: 500px;
+      border: 1px solid #7b6b6b;
+      margin: 0 auto;
+      position: absolute;
+      transform: translate(-50%, -50%);
+
+    }
+
+    * {
+      font-size: 20px;
+    }
+
+    #content {
+      width: 400px;
+      height: 375px;
+      border-bottom: 1px solid #ccc;
+      overflow-y: auto;
+      background-color:#fff;
+    }
+
+    #content ul {
+      margin: 0;
+      padding: 0;
+
+    }
+
+    li {
+      list-style: none;
+    }
+
+    #Img {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      left: 10px;
+      top: 15px;
+      border-radius: 15px;
+
+    }
+
+    #txt {
+      margin: 0;
+      position: absolute;
+      left: 70px;
+      top: 20px;
+      border-radius: 2px;
+      border: 1px solid #ccc;
+      width: 250px;
+      height: 40px;
+
+    }
+
+    #btn {
+      width: 50px;
+      height: 40px;
+      margin-right: 10px;
+      position: absolute;
+      margin: 0;
+      left: 330px;
+      top: 22px;
+      text-align: center;
+    }
+
+    #edit {
+      position: relative;
+      background: #ece7e766;
+      width: 400px;
+      height: 75px;
+    }
+
+    .showTxt {
+      width: auto;
+      height: auto;
+      max-width: 230px;
+      background: #008000a8;
+      border: 0;
+      font-size: 20px;
+      color: white;
+      padding: 5px;
+      border-radius: 2px;
+      word-break: break-all;
+      margin-top: 15px;
+      display: list-item;
+      vertical-align: middle;
+
+    }
+
+    .left {
+      display: flex;
+      text-align: left;
+      margin-left: 60px;
+      float: left;
+
+    }
+
+    .right {
+      text-align: right;
+      margin-top: 10px;
+      margin-right: 60px;
+      float: right;
+
+    }
+
+    .showImg {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      vertical-align: baseline;
+      transform: translateY(-5px);
+    }
+
+    .leftImg {
+      left: 10px;
+      position: absolute;
+
+
+    }
+
+    .rightImg {
+      right: 10px;
+      position: absolute;
+
+
+    }
+
+    #scroll {
+      position: relative;
+
+    }
+
+    #header {
+      text-align: center;
+      background: #ece7e766;
+      width: 400px;
+      height: 50px;
+      line-height: 50px;
+    }
+
+    #phiz {
+      font-size: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      position: absolute;
+      width: 300px;
+      height: 130px;
+      overflow-y: auto;
+      bottom: 40px;
+      right: 40px;
+      padding: 0;
+      border-radius: 10px;
+      overflow-x: hidden;
+      justify-content: space-around;
+      align-items: center;
+      cursor: pointer;
+      background-color: rgba(155, 155, 155, .3);
+      display: none;
+    }
+
+    #size {
+      cursor: pointer;
+      position: absolute;
+      bottom: 15px;
+      right: 75px;
+      z-index: 99;
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <ul id="phiz">
+      <li>😍</li>
+      <li>😘</li>
+      <li>🥰</li>
+      <li>😗</li>
+      <li>😙</li>
+      <li>🥲</li>
+      <li>😚</li>
+      <li>🙂</li>
+      <li>🤗</li>
+      <li>🤩</li>
+      <li>🤔</li>
+      <li>🤨</li>
+      <li>😐</li>
+      <li>😑</li>
+      <li>😶</li>
+      <li>💗</li>
+      <li>🙄</li>
+      <li>😏</li>
+      <li>😣</li>
+      <li>😥</li>
+      <li>😮</li>
+      <li>🤐</li>
+      <li>😪</li>
+      <li>😫</li>
+      <li>🥱</li>
+      <li>😴</li>
+      <li>😌</li>
+      <li>😛</li>
+      <li>😜</li>
+      <li>😝</li>
+      <li>🤤</li>
+      <li>😒</li>
+      <li>😓</li>
+      <li>😔</li>
+      <li>😕</li>
+      <li>🙃</li>
+      <li>🤑</li>
+      <li>😲</li>
+      <li>☹️</li>
+      <li>🙁</li>
+    </ul>
+    <div id="size">🙂</div>
+    <div id="header">我的小公主💗</div>
+    <div id="content">
+      <div id="scroll">
+        <ul id="save"></ul>
+      </div>
+    </div>
+
+    <div id="edit">
+      <img src="1.jpg" id="Img">
+      <input type="text" name="" id="txt">
+      <input type="button" name="" value="发送" id="btn">
+    </div>
+  </div>
+  <script type="text/javascript">
+
+    //获取元素
+    let oCont = document.getElementById('content')
+    let oImg = document.getElementById('Img')
+    let oTxt = document.getElementById('txt')
+    let oBtn = document.getElementById('btn')
+    let oSTxt = document.getElementsByClassName('showTxt')
+    let oSave = document.getElementById('save')
+    let header = document.getElementById('header')
+    let size = document.getElementById('size')
+    let phiz = document.getElementById('phiz')
+    let num = 0
+    let i = true
+    let liLists = document.querySelectorAll('#phiz>li')
+    liLists.forEach(li => {
+      li.onclick = function () {
+        oTxt.value += this.innerText
+      }
+    })
+
+    size.onclick = function () {
+      if (i) {
+        console.log('1')
+
+        phiz.style.display = 'flex'
+        i = !i
+      } else {
+        console.log(2)
+        phiz.style.display = 'none'
+        i = !i
+      }
+    }
+
+
+    //切换头像
+    oImg.onclick = function () {
+      num++
+      if (num % 2 == 0) {
+        oImg.src = '1.jpg'
+        header.innerText = '👸我的小公主💗'
+
+      }
+      else {
+        oImg.src = '2.jpg'
+        header.innerText = '舔🐕⑧号'
+      }
+    }
+
+    //发送事件
+    oBtn.onclick = function () {
+      addCon()
+
+    }
+
+    function addCon () {
+      //定义需要添加的元素
+      let newLi = document.createElement("li")
+      let newImg = document.createElement('img')
+      //判断聊天的对象是哪一方，文字框出现在左边还是右边
+      if (num % 2 == 0) {
+        //添加对话框
+        newLi.innerHTML = oTxt.value
+        newLi.className = 'showTxt right'
+        oSave.appendChild(newLi)
+        oTxt.value = ''
+        //添加头像
+        newImg.src = oImg.src
+        newImg.className = 'showImg rightImg'
+        newLi.appendChild(newImg)
+
+        //清除浮动
+        let div = document.createElement('div')
+        div.style = 'clear:both'
+        oSave.appendChild(div)
+      } else {
+        newLi.innerHTML = oTxt.value
+        newLi.className = 'showTxt left'
+        oSave.appendChild(newLi)
+        oTxt.value = ''
+        newImg.src = oImg.src
+        newImg.className = 'showImg leftImg'
+        newLi.appendChild(newImg)
+        let div = document.createElement('div')
+        div.style = 'clear:both'
+        oSave.appendChild(div)
+      }
+    }
+
+  </script>
+</body>
+
+</html>

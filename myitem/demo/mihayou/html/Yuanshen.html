@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原神</title>
+    <link rel="stylesheet" href="../css/reset.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <audio src="https://ys.mihoyo.com/main/_nuxt/medias/video-bgm.d8637316.mp3" autoplay="autoplay"></audio>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="yin"></div>
+    <ul class="navl">
+        <li>蒙德城</li>
+        <li>璃月港</li>
+        <li>稻妻城</li>
+        <li>敬请期待</li>
+    </ul>
+    <header>
+        <div class="logo">
+            <a href=""><img class="yinyue"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QzU2MUMyMjQ1RDI3MTFFOTlGNjlGQ0Y5MEYwNzU5RDQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QzU2MUMyMjU1RDI3MTFFOTlGNjlGQ0Y5MEYwNzU5RDQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpDMUVBQTk3RjVEMjcxMUU5OUY2OUZDRjkwRjA3NTlENCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpDMUVBQTk4MDVEMjcxMUU5OUY2OUZDRjkwRjA3NTlENCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGvQ5sAAAgdSURBVHja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"
+                    alt=""></a>
+            <a href="#"><img class="yuanshen" src="https://ys.mihoyo.com/main/_nuxt/img/f78aabc.png#" alt=""></a>
+        </div>
+        <div class="nav">
+            <a href="#" class="item">首页</a>
+            <a href="#" class="item">新闻</a>
+            <a href="#" class="item">角色</a>
+            <a href="#" class="item">世界</a>
+            <a href="#" class="item">漫画</a>
+            <a href="#" class="item">社区</a>
+        </div>
+        <div class="navr">
+            <a href="#">
+                <span>成长关爱系统</span>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAydpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDcuMS1jMDAwIDc5LmRhYmFjYmIsIDIwMjEvMDQvMTQtMDA6Mzk6NDQgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjNBMTNCQzMwNjk1MTExRUNBQ0ZDQjRDRjMxNzREOTQ2IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjNBMTNCQzJGNjk1MTExRUNBQ0ZDQjRDRjMxNzREOTQ2IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkxMTU3NzhFNEI0NzExRUNCOUEyOTdCQUJGQzVDQjIzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkxMTU3NzhGNEI0NzExRUNCOUEyOTdCQUJGQzVDQjIzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+aJoX1wAAAvZJREFUeNqsl01IVFEUx99MM1iRjRoJobMwErFylRK0kOxrxoJoVbgIsk2LFkFfC2khSIu+iKKoRQzRQmpRBAUZmkEfZhRkmaAVooNQhISlSWj6+h/5D5wec997M7wDv3nvzj1z/++ee+bc+0K2bVs+LAw2gySoA1WgCETBBBgBfaAbPABTniOKsAtLwFEwZvu3SXAFxN3GdhNNghE7f/sNToKwX+EQaAPzdjD2GBR5CYvoDTt4ewdiWivkSK42cIr3f0AP6ATDoBDUgy2g3JEq4vsWPAJDTLyNoFH5vmKCzjiTK6nC+xw0GtZ+NWgF0/R9AhIuvufUzC84Q71UJdI9tuX77eA26ANd4AhYzr4DIAWibG8FN+n7lIm1TPnOgb9ggxY+RtGXYAV/0G5YrzTYp2a1Etw1+A6DBqUxCzoywmH+TyV0O+nU7pEsM+AgqAS9Hr7fwTpQwCUUWy8i29j4SNF6n5kqoZvw6XuHYx9m+0yYZVCsi9e9lj+T38Z4Py956uIr2V0KXrCdCLP2in3itcrK3UIe/YtBNZhkuyaCj0o2CtR/MmhhsWlGaSFaclPMRi2vr63gbQz0g1V6nSK8bwAl4Bb4GbDwNUZyj94Wx1X2tTD7mrm9BWEPWZDirAELJiJvlNMPUAsi4H1Awvupc19/KZtEChNvVmH5CtIs9ANgt1qOXEw2hV+gAoyDTaovLU/SZHjSQ3zS46yxuVg3KGSIsxWZlMW6PJWl8wtLna7lfuyZ2mSusz47LZEp9FcNg3xmPba428x6iPaAUtb/SwafQenPCMd5RspmQ2At/VpcRHu5U4nfRRe/JufR54SLszxlhYt4P2cq/eddxulkQv8nvIgHM5MNqLC3OkQzD3XWY3ssMx32YjxBmExE1tD3MhgF5T5mKpld53W8LeFJxGQflFgxr6dd/L9ljjt+DvRRzmDOMJhEZReopt+8y5qW5fomYfFJO/Iok4PM3lA+rzCaGjmucKamKIzy1LnD9Nqi+SfAAFLcgBA6a85mAAAAAElFTkSuQmCC"
+                    alt="">
+            </a>
+            <a href="https://first-9gad1gjm2bb5eb64-1312460968.tcloudbaseapp.com/%E7%99%BE%E5%BA%A6/jia.html">
+                <span>登录</span>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkM4Q0U4MzlGNzIwQjExRTlCNzFCRjhGQzY5NjE1QzVEIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkM4Q0U4M0EwNzIwQjExRTlCNzFCRjhGQzY5NjE1QzVEIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QzhDRTgzOUQ3MjBCMTFFOUI3MUJGOEZDNjk2MTVDNUQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QzhDRTgzOUU3MjBCMTFFOUI3MUJGOEZDNjk2MTVDNUQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz59zFVZAAACLklEQVR42ryXzytEURTH33vGmPzOzxmmSbGSlaXt5D+QIqNYkKz8WCiSbFnJgiaysmCj+Bf4A6wQdkhK+ZFf0fU9Oq9er5l7zzVy6rOYeeec733v3XvOea5SyrGwCIiCGlDO/z2De/ABPsWZSNhAEYiDGfCq8tsr+8Q5RpvXJJoCu8redjnWWtgFQ6pwoxyeVLgYbKq/sy3OqRWmd5NVf2/Z8HsPC2cESeb5/ZUyLWBREJfJJ5wyBJ4bNgxduzTkSIWFaQPsaAIe+JiYTkGcffPZjr/ZggE66xWI+vQYciXIz+M6MqSpMWdg36K6HYATzfVhv3JFDBVpz+JuffYMFS7ice2NaVb45tjbh+YaaUU9Lvg6o+uupXC1KScJlxmcOkC9hWgdaDf4lHmCRAkwZiE8DpolbTEpLHtpwaZKC3MlHS57UqMzGsshGBOc36CVUvujqeLJsLODdgyWwTlPJG1gkveCxOiUVPgrnlX/Z6TluDxz0Qa6Fqz2CiyBQ3AHXkAJSII0mBM8uSZwI20Sp6AzV0MPTS0loBvcakYiT9oWF0DUsmRWgg1JW8w1CFB7G+A7cX6BGxoQMtLR55IbiFOA8KB09PGHvTUOWAG1vxCtDeRYlQx7wdUOBB7TCKgXCDaA0UBcXz5f1/AJk+Bi0c+/18ERuAAP3LUqQSvoAqPstw2mf45NAZ8wtP0bwZSgOEywr2fKa7rjsBVxwaA2WUXrBo9cTN7BlzTRtwADAOPsTPUcvaPqAAAAAElFTkSuQmCC"
+                    alt="">
+            </a>
+        </div>
+    </header>
+    <div class="body">
+        <ul class="images">
+            <li class="juese xg">
+                <img class="leishen" src="	https://uploadstatic.mihoyo.com/contentweb/20210802/2021080218445394104.png"
+                    alt="">
+                <img class="leidian" src="		https://uploadstatic.mihoyo.com/contentweb/20210802/2021080210203077277.png"
+                    alt="">
+                <img class="jiangjun" src="	https://uploadstatic.mihoyo.com/contentweb/20210802/2021080210200225791.png"
+                    alt="">
+                <img class="shengyou" src="../Screenshot 2022-06-01 192736.png" alt="">
+                <div class="hua">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowQjNDRDg0RkFBMDIxMUU5ODY4QTk4NjNGNEM4NDk3QyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowQjNDRDg1MEFBMDIxMUU5ODY4QTk4NjNGNEM4NDk3QyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBCM0NEODREQUEwMjExRTk4NjhBOTg2M0Y0Qzg0OTdDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBCM0NEODRFQUEwMjExRTk4NjhBOTg2M0Y0Qzg0OTdDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/5UTFAAAAK5JREFUeNqk1OEKgzAMBGA7fOq2dr/cY68zoC6UJHdqoIgaP5Bek3rvE1F1W9K4wk4Bwar9XwX1s5hcG4NG2KKw4xlEr2Dju8KCEQZRFmv7O4gy2FvtMkTRL2iMQq9iRzUPfe0nQCqNmQ/Ow3e4T+c3RoAnI3e6vJ48bgqDhpgVGw9dGMwLdiWCbWLR0YtQF0PDoQbDId8dX8UYX/nJPNQoxGTNxPhfVdA/qPknwACMfVz3Rdft9wAAAABJRU5ErkJggg=="
+                        alt="">
+                    <p>才华横溢的烟花工匠，「长野原烟花店」的现任店主，被誉为「夏祭的女王」。<br>
+                        热情似火的少女。未泯的童心与匠人的执着在她身上交织出了奇妙的焰色反应。</p>
+                </div>
+            </li>
+            <li class="juese lh">
+                <img class="leishen" src="	https://uploadstatic.mihoyo.com/contentweb/20210720/2021072011090118454.png"
+                    alt="">
+                <img class="leidian" src="	https://uploadstatic.mihoyo.com/contentweb/20210720/2021072011091174753.png"
+                    alt="">
+                <img class="jiangjun"
+                    src="		https://uploadstatic.mihoyo.com/contentweb/20210720/2021072011090831883.png" alt="">
+                <img class="shengyou" src="../Screenshot 2022-06-01 192736.png" alt="">
+                <div class="hua">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowQjNDRDg0RkFBMDIxMUU5ODY4QTk4NjNGNEM4NDk3QyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowQjNDRDg1MEFBMDIxMUU5ODY4QTk4NjNGNEM4NDk3QyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBCM0NEODREQUEwMjExRTk4NjhBOTg2M0Y0Qzg0OTdDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBCM0NEODRFQUEwMjExRTk4NjhBOTg2M0Y0Qzg0OTdDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/5UTFAAAAK5JREFUeNqk1OEKgzAMBGA7fOq2dr/cY68zoC6UJHdqoIgaP5Bek3rvE1F1W9K4wk4Bwar9XwX1s5hcG4NG2KKw4xlEr2Dju8KCEQZRFmv7O4gy2FvtMkTRL2iMQq9iRzUPfe0nQCqNmQ/Ow3e4T+c3RoAnI3e6vJ48bgqDhpgVGw9dGMwLdiWCbWLR0YtQF0PDoQbDId8dX8UYX/nJPNQoxGTNxPhfVdA/qPknwACMfVz3Rdft9wAAAABJRU5ErkJggg=="
+                        alt="">
+                    <p>稻妻「社奉行」神里家的大小姐。端庄文雅，聪慧坚韧。<br>
+                        待人接物真诚又得体，深受稻妻民众爱戴，贵有「白鹭公主」之名。</p>
+                </div>
+            </li>
+            <li class="juese ld">
+                <img class="leishen" src="https://uploadstatic.mihoyo.com/contentweb/20210817/2021081714114771170.png"
+                    alt="">
+                <img class="leidian" src="	https://uploadstatic.mihoyo.com/contentweb/20210817/2021081714133446589.png"
+                    alt="">
+                <img class="jiangjun" src="	https://uploadstatic.mihoyo.com/contentweb/20210817/2021081716214073881.png"
+                    alt="">
+                <img class="shengyou" src="../Screenshot 2022-06-01 192736.png" alt="">
+                <div class="hua">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowQjNDRDg0RkFBMDIxMUU5ODY4QTk4NjNGNEM4NDk3QyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowQjNDRDg1MEFBMDIxMUU5ODY4QTk4NjNGNEM4NDk3QyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBCM0NEODREQUEwMjExRTk4NjhBOTg2M0Y0Qzg0OTdDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBCM0NEODRFQUEwMjExRTk4NjhBOTg2M0Y0Qzg0OTdDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/5UTFAAAAK5JREFUeNqk1OEKgzAMBGA7fOq2dr/cY68zoC6UJHdqoIgaP5Bek3rvE1F1W9K4wk4Bwar9XwX1s5hcG4NG2KKw4xlEr2Dju8KCEQZRFmv7O4gy2FvtMkTRL2iMQq9iRzUPfe0nQCqNmQ/Ow3e4T+c3RoAnI3e6vJ48bgqDhpgVGw9dGMwLdiWCbWLR0YtQF0PDoQbDId8dX8UYX/nJPNQoxGTNxPhfVdA/qPknwACMfVz3Rdft9wAAAABJRU5ErkJggg=="
+                        alt="">
+                    <p>雷电将军——此世最殊胜威怖的雷霆化身，稻妻幕府的最高主宰。<br>
+                        挟威权之鸣雷，逐永恒之孤道的寂灭者。</p>
+                </div>
+            </li>
+            <li class="juese xh">
+                <img class="leishen" src="		https://uploadstatic.mihoyo.com/contentweb/20210914/2021091414025226225.png"
+                    alt="">
+                <img class="leidian"
+                    src="			https://uploadstatic.mihoyo.com/contentweb/20210914/2021091414033856414.png" alt="">
+                <img class="jiangjun"
+                    src="		https://uploadstatic.mihoyo.com/contentweb/20210914/2021091414025755510.png" alt="">
+                <img class="shengyou" src="../Screenshot 2022-06-01 192736.png" alt="">
+                <div class="hua">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowQjNDRDg0RkFBMDIxMUU5ODY4QTk4NjNGNEM4NDk3QyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowQjNDRDg1MEFBMDIxMUU5ODY4QTk4NjNGNEM4NDk3QyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBCM0NEODREQUEwMjExRTk4NjhBOTg2M0Y0Qzg0OTdDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBCM0NEODRFQUEwMjExRTk4NjhBOTg2M0Y0Qzg0OTdDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/5UTFAAAAK5JREFUeNqk1OEKgzAMBGA7fOq2dr/cY68zoC6UJHdqoIgaP5Bek3rvE1F1W9K4wk4Bwar9XwX1s5hcG4NG2KKw4xlEr2Dju8KCEQZRFmv7O4gy2FvtMkTRL2iMQq9iRzUPfe0nQCqNmQ/Ow3e4T+c3RoAnI3e6vJ48bgqDhpgVGw9dGMwLdiWCbWLR0YtQF0PDoQbDId8dX8UYX/nJPNQoxGTNxPhfVdA/qPknwACMfVz3Rdft9wAAAABJRU5ErkJggg=="
+                        alt="">
+                    <p>心海是海祇岛的「现人神巫女」，也就是现任海祇岛最高领袖。<br>
+                        她通读兵法、擅长谋略，在军事上有着独特见解，也能将内政、外交等工作处理得井井有条。<br>
+                        不过，这位人们眼中深不可测的领导者，似乎也有不为人知的一面…</p>
+                </div>
+            </li>
+            <li class="juese sz" style="overflow-x:hidden">
+                <img class="leishen" src="	https://uploadstatic.mihoyo.com/contentweb/20220208/2022020814003845991.png"
+                    style="width: 1636px;">
+                <img class="leidian" src="	https://uploadstatic.mihoyo.com/contentweb/20210817/2021081714133446589.png"
+                    alt="">
+                <img class="jiangjun"
+                    src="		https://uploadstatic.mihoyo.com/contentweb/20220208/2022020813482085195.png" alt="">
+                <img class="shengyou" src="../Screenshot 2022-06-01 192736.png" alt="">
+                <div class="hua">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowQjNDRDg0RkFBMDIxMUU5ODY4QTk4NjNGNEM4NDk3QyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowQjNDRDg1MEFBMDIxMUU5ODY4QTk4NjNGNEM4NDk3QyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBCM0NEODREQUEwMjExRTk4NjhBOTg2M0Y0Qzg0OTdDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBCM0NEODRFQUEwMjExRTk4NjhBOTg2M0Y0Qzg0OTdDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/5UTFAAAAK5JREFUeNqk1OEKgzAMBGA7fOq2dr/cY68zoC6UJHdqoIgaP5Bek3rvE1F1W9K4wk4Bwar9XwX1s5hcG4NG2KKw4xlEr2Dju8KCEQZRFmv7O4gy2FvtMkTRL2iMQq9iRzUPfe0nQCqNmQ/Ow3e4T+c3RoAnI3e6vJ48bgqDhpgVGw9dGMwLdiWCbWLR0YtQF0PDoQbDId8dX8UYX/nJPNQoxGTNxPhfVdA/qPknwACMfVz3Rdft9wAAAABJRU5ErkJggg=="
+                        alt="">
+                    <p>掌管鸣神大社的大巫女、狐之血脉的延续者、「永恒」的眷属与友人，以及，轻小说出版社「八重堂」的恐怖总编…<br>
+                        有着多重身份的神秘宫司，凡人们或许永远无法了解她的真面目与真心。</p>
+                </div>
+            </li>
+            <li class="juese sh">
+                <img class="leishen" src="	https://uploadstatic.mihoyo.com/contentweb/20211221/2021122118122432763.png"
+                    alt="">
+                <img class="leidian" src="		https://uploadstatic.mihoyo.com/contentweb/20211221/2021122118124746963.png"
+                    alt="">
+                <img class="jiangjun"
+                    src="		https://uploadstatic.mihoyo.com/contentweb/20211221/2021122118123081661.png" alt="">
+                <img class="shengyou" src="../Screenshot 2022-06-01 192736.png" alt="">
+                <div class="hua">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowQjNDRDg0RkFBMDIxMUU5ODY4QTk4NjNGNEM4NDk3QyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowQjNDRDg1MEFBMDIxMUU5ODY4QTk4NjNGNEM4NDk3QyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBCM0NEODREQUEwMjExRTk4NjhBOTg2M0Y0Qzg0OTdDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBCM0NEODRFQUEwMjExRTk4NjhBOTg2M0Y0Qzg0OTdDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/5UTFAAAAK5JREFUeNqk1OEKgzAMBGA7fOq2dr/cY68zoC6UJHdqoIgaP5Bek3rvE1F1W9K4wk4Bwar9XwX1s5hcG4NG2KKw4xlEr2Dju8KCEQZRFmv7O4gy2FvtMkTRL2iMQq9iRzUPfe0nQCqNmQ/Ow3e4T+c3RoAnI3e6vJ48bgqDhpgVGw9dGMwLdiWCbWLR0YtQF0PDoQbDId8dX8UYX/nJPNQoxGTNxPhfVdA/qPknwACMfVz3Rdft9wAAAABJRU5ErkJggg=="
+                        alt="">
+                    <p>虽为人类之身，却是仙家弟子。过去曾生活在远离璃月港的山野之间，以红绳缚魂，修身养性。<br>
+                        气质淡雅如仙人，身上似乎藏有某些秘密。</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="touming">
+        <div class="button">
+            <img class="button-left"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAABACAYAAACOcP4eAAAFZklEQVRogcXaeYhd1R0H8M/MJJNEGxVJcAloVQT/MgmYGsEtuBCq4larxiYuxVgVKVpaQcXdVnBpwSKt4i5Ssa6UgjWQ1gXikhoqaFFUUNP8E9xSNYkmzz9+5/Ju3sx7c8+d+9584TL3nHvO737nvN92fucOtVotU4gT8DY+zJk03B8ulXAQHsaM3IlTSfph7I6NuROnivRNWIRv6nCYCtLH4pp0v7WOgEGTnivUosBQHSGDJv0E9pqskEGSvhVHNSFoUKSX4cqmhA2C9CG4r0mB/Sa9O57BzCaF9pP0CB7HvKYF95P0A8InN45+kb4eyyuMm1aHQz9Ir8R1FcfOwJbcFzRN+kz8OWP89fgs+y2tVqup65hWq/Vdqzqeq/uuoYY2Acfjb5hecfyrOFLNhKkJ0ofhH/hBxfEbcCg+rvvCyer0ifiX6oS34iRtwvunKwuTIX0KnlZdJVo4FWtTe1TkJMvSfWXUJf1LQXhaxpyf4e+l9lLMSdfSnJfXIX0r/pA552I8VmovwhJsSteS1FcJOaSn4375KeZv8KdSex5OFkHlu3RtSX17VxFYlfR+wk2dX5VpwnW4rdSeLcL7LLGpHUrXN6lveRrTE1VIH44XsDCPr6twY8e7zsCeQiXK+8Oh1LdXGtOT10SkL8VLOCCPr1/hdx19yzAfn6d2SxjytHQvPVuAc3oJ72b9O+NurMgkux0X4KFS3zB+IgztixLhUe1kaYbw4UOJ+CHp2V+TzB0wXkRcgHvTxBxsxekinBeYJvR0fiLcStfM9OyeNG6lMMjN2nq+G9bhkfSsK+lf4A7slEn4XZHhrSv17SMC0AFi9YoVGxVG9xReTn2H4zRhkEU+MpyIvy+2bB91kt4Ddwq9y8UbItJ9UupbjB8LNftS2+hGRMh/Fv/skHO0cHv/x7bU18Iu+EoEpjUF6QtxlxrVS/wRl5Xa+4rV/aH4qYufm1i56WLVXu0ib3Ei/q32L1Oo00xREn52WFuH6mBbR7vQ2V4ye3msbnMKeS20CvXYE7ebwNV0wRqhjxtKfT8S6jHbWPWYLdRjdYecJWKVNxmrHpuEerzGWEO8JJGflUn8HZyF/5T65gldP1B4joJIYYjP4MXUd0QaWzbEEeyK90Rytr4QPJ7LWyRc3vxM4ptFNCu7vBHh8hYKD1J2edO195MXCT3udHlvCpe3gxp227nsIpKcszOJb8PPjQ0upwu39oUwsF7BZVis8Mt40jjBpZtRfCnc3xWZpEfwoAjjBbaLEu/rYvUkclsT8dESYWnM62nOGMJU2yMuEdWifTP/gavx21J7GOfhYO38oxO7Cbt4UBfChaCJsBrH4a0KY8u4BTeU2ttFbW+9UL/yahVeYn0a05Uw1fPp94SBPlJxfIFrRYpa4Cs8mv7O0jbMWR3PeiJn57JFZH23Z8whVvzyUnuDcHej2qnpqPDdG8bMHgd19oi/lm+gdwp9LrBWqN3sdK0WOUwl1N2N/14Eg28z5jyQ5hR4Xhx8bkz3lTHZCtMJ8msfR+CV1C4KNR/kvLSJsthiURabcEOasFGUxbKIltFEqXeNiHhVi4lzxDaq9jlMU/XpF4SqVP3ZFgq1qoUmi+qrVDuyKLBUlBiyc/mm6tNlrFT9NGC7OC//NOcF/ThzuceO4bsXNsusmNLf063HJhokSgM984zx0M9zxBXCQBtHP0lvE7WQ2scU3dDvs/HPREnh6yaFDuIrhH+LLVhjGNT3Hn8xtopaG4P8suYqY2sdtTDob5h+iv9NVsigSW/EuaV2rXA8Fd/lrcLN6T47GtKf3KMqXhOb5bkyP92cym9NV4hEaU7uxKkk/V9BPPsjle8BB9HRUL6DehMAAAAASUVORK5CYII="
+                alt="">
+            <ul class="ul2">
+
+                <li class="min"> <img src="https://uploadstatic.mihoyo.com/contentweb/20210802/2021080210195390130.png"
+                        alt=""></a>
+                    <p>宵宫</p>
+                </li>
+                <li class="min"><img src="https://uploadstatic.mihoyo.com/contentweb/20210720/2021072011085576262.png"
+                        alt=""></a>
+                    <p>神里凌华</p>
+                </li>
+                <li class="min"> <img src="https://uploadstatic.mihoyo.com/contentweb/20210817/2021081714114216212.png"
+                        alt=""></a>
+                    <p>雷电将军</p>
+                </li>
+                <li class="min"> <img src="https://uploadstatic.mihoyo.com/contentweb/20210914/2021091414024724995.png"
+                        alt=""></a>
+                    <p>珊瑚宫心海</p>
+                </li>
+                <li class="min"> <img src="https://uploadstatic.mihoyo.com/contentweb/20220208/2022020813481182336.png"
+                        alt=""></a>
+                    <p>八重神子</p>
+                </li>
+                <li class="min"> <img src="https://uploadstatic.mihoyo.com/contentweb/20211221/2021122118121612158.png"
+                        alt=""></a>
+                    <p>申鹤</p>
+                </li>
+
+            </ul>
+            <img class="button-right"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAABACAYAAACOcP4eAAAFXElEQVRogc3ae6ilUxjH8c8+M3OcKeM6CpNkRPhjzMhlcsld0sj9kjvlThpCkWuESIo/kMiMBrkNZYpRg8hl3Cb/KJFLYxIZHMyN2f541mu/+5w5Z6/3Pe/Br97OPms/71rfvd5nPc+z1t6tdrutonbAbni56o1Nqa/GPRthHnZpmCVbdaB/xBYC/D9RHeg+rMJeuK1ZnHyAOlqb/l6PwxpiyVZd6Fbp9Txs1QBLtupCl7UNnmmgn2w1AQ0H4q6G+uqppqDhGpzeYH8jqkloeERElXFV09ADWIgtG+63S01Dw7Z4ChPGoW+MDzQRux8bp75rZ8SJGXZn4uYa/WcBVNUaUTTl6CZcUGOMUVUHeqVqM/gQTq0xzshqt9t1r5fa+fqz3W4fOoaxuq5WjU1AoX68iX0y7ddhDl6tO2ChsUDDdnhP1B85+g1H4J2xDFrHp6enC77F0Tqlai9tjDfEjNdWVehJOC1d/antQxxXsY8XcGzFsf9RVegjMTVdR5baF6lWLE0U4FdUHB/VoPfCIRhM18G6i6MFuLji+Pfhzor3ZENvi2NEYvkzXWtS27SS3YOiRK2ia0XKn5R7Qw70FJGSJ4sNbStdq1Lbmcmm0N0iE1bROSIK7ZBj3Au6DyeJkDaoe2/YSm1bJ5tyX7fiuizcjmZhMfbrZdgL+nTMxM/p/7ZYRBPTa+m93UVEKesOXJXH+492xFu4dDSjkZJLH04Un/oXrE+Q/cKXiaJprZjxPmyKt/Fssi90Nh5VPVLNwyX4PQd6ovDT3RNwO10D6b2Hk90FYkGu1vHzTbEM89N7hebgOZ3YnqsP0jgfjwa9nUgUO4rHXsxYv1h0z4vHB/vjeLEgi4zYh83whdh2fVPqeyaexs4Vwf8QbvbghqD3wVEi1f6qs+gmpLYX8fqQDg8SYe83/JXa2thEPNZFeLdkPy19mD0rgsOTmIvvW+12e/s08HTxqIuwRszcpDTQeyN0Njvdv07nyRTuNICvRPYrz/r9uKwG+Bpcnrs4RrNrjdLe0r0oC/21gbYctdAqu8fewj2mGO4eU4R7LBnSycFilgcNd49B4R7vl+y3Eetidg3gp4V7rBi6EKeJhbiTiBwFSLEQF4rCHw5ItuWFOEFEkM+FSywv9T1DHC3sWhF2lSgNHigaNhTyJoiQN0tEkHLImyT2fHCh8ONyyNtMhKf5ul1gjjikHKgIvAznY2m5cbTkcoIIa1WSy1siHpf9+CyRXKoe3jyJi4SrDoPbkNaLmVkqZk+CW5vA+0vAks3SdE8Z+FI8XgP4SlEWDAOm96HLggQ4Q7hKSyfTlYE/SbZlzcW9FWG/xrmGL/gu9Qp568WqXS4iQtmXiiixPNmUZ/gG1YE/xeF6AJNXxPyOJ9LfyToLc/KQ9wpdJ0rTKpovdkGf5xjnJpcVItz165Sm/SJ2ryjZzcXtuaRJ94jFuqaXYaEq5eKH4tFNSdcSUYUVOkd1l7gSV1e8J+v0s6xXRMlavC50nGpHu+twsnh6lVXnhKk4qPky/d1XxOeRapChWic+ZO3v1sd6LDZdVH9TM+0HxbHYu70MR9NYvgkYEMkkF3ityLJjAmZs0M9hjwr2c8Rue8yqC32jKGNzdYaGgKnn05uLn0/kfuALdTbDjajuj1RWZ9reomFg6kGv1308MJIW+B99u5WjxSI1j4vGA/pbnKL+5rWnmoZeJU74Vzbcb5eahj4PHzXc5zA1CX2H2G2Pu5qCXqL6eXRtNQH9nSgz/zXVhS6n0bNFhvzXVBe6OGe+Da81xJKtOrXHVPwgzjn2bpwoQ3Vmeip+Mo4Zr5fq/kjlLHzWMEu2/gbv3csfYGcJUgAAAABJRU5ErkJggg=="
+                alt="">
+        </div>
+    </div>
+</body>
+<script>
+    let left = document.querySelector(".button-left")
+    let right = document.querySelector(".button-right")
+    let min = document.querySelectorAll(".min")
+    let images = document.querySelector(".images")
+    // 我们先设置一个index用来计算和控制图片的位置，再设置一个time作为定时器
+    let index = 0
+
+    // 在这里我们先创建一个position为复用函数，作用就是结合index来定义当前图片的位置的
+    function position() {
+        images.style.left = (index * -100) + "%"
+    }
+    // 然后我们创建一个复用函数add为加函数，如果当前图片的位置值index大于等于当前图片数量的话，就说明超出了计算范围，所以得清零，如若不然index就加一
+    function add() {
+        if (index >= min.length - 1) {
+            index = 0
+        } else {
+            index++
+        }
+    }
+    // 反之desc为减函数，如果当前图片的位置值index小于1了，那么他的值就反弹到最顶端，也就是轮播图的最后面，如若不然index就减一
+    function desc() {
+        if (index < 1) {
+            index = min.length - 1
+        } else {
+            index--
+        }
+    }
+    // 创建一个timer来当做复用时间的函数，，每隔3秒钟index就加一，然后加入增加add函数和desc函数来判断一下，再加入定位函数
+
+    // 接下来我们设置一下按钮，left为左边的按钮，因为点击时图片会反方向倒退，所以我们套入desc减函数进去，顺便定位一下
+    // 当然，点击的时候我们必须先把定时器给停掉再重新执行一遍，不然会在你点击下一张图片时，定时器倒计时一到也跟着生效，这样子就会连跳两张图片了
+    left.addEventListener("click", () => {
+        desc()
+        position()
+        clearInterval(time)
+        timer()
+    })
+    // 右边的按钮和左边也是差不多
+    right.addEventListener("click", () => {
+        add()
+        position()
+        clearInterval(time)
+        timer()
+    })
+    // 在弄好左右两个按钮的时候，我们还需要生效下面的小图片按钮，
+    // 首先我们先遍历一遍，然后获取当前点击的那个小图片按钮的值并赋值给index，这样子就可以随之跳转
+    for (let i = 0; i < min.length; i++) {
+        min[i].addEventListener("click", () => {
+            index = i
+            position()
+            clearInterval(time)
+            timer()
+        })
+    }
+    // 最后的最后我们将定时器开起来，这样子图片就可以自动轮播啦，如果还不明白多练几遍就会了，将其理解进去，吸取精华所在，反复咀嚼，加油，感谢你的观看，我们下期再见
+    timer()
+</script>
+
+</html>

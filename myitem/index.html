@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丁丁丁哇</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/all.css">
+</head>
+
+<body>
+
+    <div class="shell-top">
+        <div class="word">
+            <h2>Welcome to</h2>
+            <h2>丁丁丁哇</h2>
+        </div>
+
+        <video
+            src="https://first-9gad1gjm2bb5eb64-1312460968.tcloudbaseapp.com/myitem/image/synth%20city%20by%20VISUALDON%204K%2060%20FPS.mp4"
+            loop autoplay muted></video>
+
+    </div>
+    <div class="shell-main">
+        <div class="shell-main-nav">
+
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./image/loge.webp" alt="">
+                    <span>丁丁丁哇</span>
+                </a>
+            </div>
+
+            <ul>
+                <li><a href="./Login2.html">登录</a></li>
+                <li><a href="./Template.html">网页模板</a></li>
+                <li><a href="css.html">CSS 特效</a></li>
+                <li><a href="./js.html">JS 组件</a></li>
+                <li><a href="game.html">JS 游戏</a></li>        
+                <div class="nav-box"></div>
+            </ul>
+        </div>
+        <div class="shell-main-lbt">
+          <!--   <ul class="images">
+                <li class="img">
+                    <div class="shell-main-lbt-word">
+                        <h2>好好学习</h2><br />
+                        <span></span>
+                    </div>
+                </li>
+                <li class="img">
+                    <div class="shell-main-lbt-word">
+                        <h2>天天向上</h2><br />
+                        <span></span>
+                    </div>
+                </li>
+                <li class="img">
+                    <div class="shell-main-lbt-word">
+                        <h2>不忘初心</h2><br />
+                        <span></span>
+                    </div>
+                </li>
+                <li class="img">
+                    <div class="shell-main-lbt-word">
+                        <h2>方得始终</h2><br />
+                        <span></span>
+                    </div>
+                </li>
+            </ul> -->
+            <div class="button">
+                <div class="button-left">&nbsp;</div>
+                <div class="button-right">&nbsp;</div>
+            </div>
+        </div>
+        <div class="shell-main-header">
+            <div class="shell-main-header-left">
+                <div class="shell-main-header-left-top">
+                    <h2>这</h2>
+                    <span>里是丁丁丁哇<br />是一个分享知识的地方</span>
+                </div>
+                <div class="shell-main-header-left-bottom">
+                    <span
+                        style="color: rgb(100, 100, 100);">欢迎来到丁丁丁哇,在这里我会分享一些好玩的css特效动画,以及我平时也喜欢写一些有趣的js组件,并在这里告诉大家功能是如何实现的,我希望可以和大家一起学习前端知识...</span><br /><br />
+                    <span style="font-family: font;">Welcome to dingdingdingwa, Here I will share some interesting css
+                        special effects animations, and I usually like to write some interesting js components, and tell
+                        you how the functions are implemented here, I hope to learn front-end knowledge with
+                        you...</span>
+                </div>
+                <div class="shell-main-header-left-footer">
+                    <p>-------丁丁丁哇</p>
+                </div>
+            </div>
+            <div class="shell-main-header-right"></div>
+        </div>
+        <div class="shell-main-bottom">
+            <h2><span>分</span>享知识:</h2>
+            <div class="shell-main-bottom-bottom">
+                <ul>
+                    <a href="./Template.html">
+                        <li>
+                            <img src="./image/tx (1).jpg" alt="">
+                            <h2>网页模板</h2>
+                        </li>
+                    </a>
+                    <a href="css.html">
+                        <li>
+                            <img src="./image/2 (10).jpg" alt="">
+                            <h2>CSS效果</h2>
+                        </li>
+                    </a>
+                    <a href="js.html">
+                        <li>
+                            <img src="./image/tx (3).jpg" alt="">
+                            <h2>js组件</h2>
+                        </li>
+                    </a>
+                    <a href="game.html">
+                        <li>
+                            <img src="./image/2 (7).png" alt="">
+                            <h2>js小游戏</h2>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+
+        <div class="shell-main-footer">
+        </div>
+    </div>
+    </div>
+</body>
+<!-- 引入jquery -->
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
+<script>
+    window.addEventListener('scroll', function () {
+        let top = window.scrollY
+        if (top != 0) {
+            $('.shell-top').css('top', '-100vh')
+            $('.shell-main').css('top', '0')
+            $('.shell-main-lbt-word').css('transform', 'translateY(0px)')
+            $('.shell-main-lbt-word').css('backdrop-filter', 'blur(5px)')
+            $('.shell-main-lbt-word h2').css('transform', 'translate(0px)')
+            $('.shell-main-lbt-word span').css('transform', 'translate(0px)')
+
+        } else {
+            $('.shell-top').css('top', '0px')
+            $('.shell-main').css('top', '100vh')
+            $('.shell-main-lbt-word').css('transform', 'translateY(400px)')
+            $('.shell-main-lbt-word').css('backdrop-filter', 'blur(0px)')
+            $('.shell-main-lbt-word h2').css('transform', 'translate(520px)')
+            $('.shell-main-lbt-word span').css('transform', 'translate(-620px)')
+        }
+        if (top > 650) {
+            $('.shell-main-header-left-top').css('opacity', '1')
+            $('.shell-main-header-left-top').css('transform', 'translateY(0px)')
+            $('.shell-main-header-left-bottom').css('opacity', '1')
+            $('.shell-main-header-left-bottom').css('transform', 'translateY(0px)')
+            $('.shell-main-header-left-footer').css('opacity', '1')
+            $('.shell-main-header-left-footer').css('transform', 'translateY(0px)')
+        } else {
+            $('.shell-main-header-left-top').css('opacity', '0')
+            $('.shell-main-header-left-top').css('transform', 'translateY(400px)')
+            $('.shell-main-header-left-bottom').css('opacity', '0')
+            $('.shell-main-header-left-bottom').css('transform', 'translateY(400px)')
+            $('.shell-main-header-left-footer').css('opacity', '0')
+            $('.shell-main-header-left-footer').css('transform', 'translateY(400px)')
+        }
+    })
+    // let left = document.querySelector(".button-left")
+    // let right = document.querySelector(".button-right")
+    // let min = document.querySelectorAll(".min")
+    // let images = document.querySelector(".images")
+    // let index = 0
+    // let time
+    // function position () {
+    //     images.style.left = (index * -100) + "%"
+    // }
+    // function add () {
+    //     if (index >=4 - 1) {
+    //         index = 0
+    //     } else {
+    //         index++
+    //     }
+    // }
+    // function desc () {
+    //     if (index < 1) {
+    //         index =4- 1
+    //     } else {
+    //         index--
+    //     }
+    // }
+
+    // function timer () {
+    //     time = setInterval(() => {
+    //         index++
+    //         // desc()
+    //         // add()
+    //         position()
+    //     }, 3000)
+    // }
+
+    // left.addEventListener("click", () => {
+    //     desc()
+    //     position()
+    //     clearInterval(time)
+    //     timer()
+    // })
+    // // 右边的按钮和左边也是差不多
+    // right.addEventListener("click", () => {
+    //     add()
+    //     position()
+    //     clearInterval(time)
+    //     timer()
+    // })
+
+
+
+    timer()
+</script>
+
+</html>

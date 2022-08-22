@@ -1,0 +1,95 @@
+
+.container {
+    position: relative;
+    box-sizing: border-box;
+    margin: 10px auto;
+    width: 1226px;
+    height: 460px;
+    overflow: hidden;
+}
+
+.container .wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    /* WRAPPER容器的宽度：（真实SLIDE数量+1[克隆的]） * CONTAINER的宽度 */
+    width: 6130px;
+    height: 100%;
+
+    /* 控制每一个SLIDE在WRAPPER中水平排列 */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    /* 设置CSS3过度动画，当后期控制WRAPPER的LEFT值改变，基于CSS3动画实现动画效果 */
+    transition: left .3s linear 0s;
+}
+
+.container .wrapper .slide {
+    width: 1226px;
+    height: 100%;
+    background: #EEE;
+}
+
+.container .wrapper .slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.container .pagination {
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.container .pagination span {
+    box-sizing: border-box;
+    margin: 0 4px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid rgba(255, 255, 255, .4);
+    background: rgba(0, 0, 0, .4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.container .pagination span.active {
+    background: rgba(255, 255, 255, .4);
+    border-color: rgba(0, 0, 0, .4);
+    transform: scale(1.5);
+}
+
+.container .btn {
+    position: absolute;
+    top: 50%;
+    margin-top: -34.5px;
+    z-index: 3;
+    width: 41px;
+    height: 69px;
+    background: url('../images/icon-slides.png') no-repeat;
+}
+
+.container .btn.btn-prev {
+    left: 0;
+    background-position: -84px 50%;
+}
+
+.container .btn.btn-prev:hover {
+    background-position: 0 50%;
+}
+
+.container .btn.btn-next {
+    right: 0;
+    background-position: -125px 50%;
+}
+
+.container .btn.btn-next:hover {
+    background-position: -42px 50%;
+} 

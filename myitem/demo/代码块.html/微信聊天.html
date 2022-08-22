@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>微信聊天</title>
+  <link rel="stylesheet" href="./vs2015.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="./highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+  <div class="container">
+    <ul>
+      <li class="li">HTML</li>
+      <li class="li">CSS</li>
+      <li class="li">JS</li>
+    </ul>
+    <pre><code class="html">
+ 
+    &lt;div id="container">
+      &lt;ul id="phiz">
+        &lt;li>😍&lt;/li>
+        &lt;li>😘&lt;/li>
+        &lt;li>🥰&lt;/li>
+        &lt;li>😗&lt;/li>
+        &lt;li>😙&lt;/li>
+        &lt;li>🥲&lt;/li>
+        &lt;li>😚&lt;/li>
+        &lt;li>🙂&lt;/li>
+        &lt;li>🤗&lt;/li>
+        &lt;li>🤩&lt;/li>
+        &lt;li>🤔&lt;/li>
+        &lt;li>🤨&lt;/li>
+        &lt;li>😐&lt;/li>
+        &lt;li>😑&lt;/li>
+        &lt;li>😶&lt;/li>
+        &lt;li>💗&lt;/li>
+        &lt;li>🙄&lt;/li>
+        &lt;li>😏&lt;/li>
+        &lt;li>😣&lt;/li>
+        &lt;li>😥&lt;/li>
+        &lt;li>😮&lt;/li>
+        &lt;li>🤐&lt;/li>
+        &lt;li>😪&lt;/li>
+        &lt;li>😫&lt;/li>
+        &lt;li>🥱&lt;/li>
+        &lt;li>😴&lt;/li>
+        &lt;li>😌&lt;/li>
+        &lt;li>😛&lt;/li>
+        &lt;li>😜&lt;/li>
+        &lt;li>😝&lt;/li>
+        &lt;li>🤤&lt;/li>
+        &lt;li>😒&lt;/li>
+        &lt;li>😓&lt;/li>
+        &lt;li>😔&lt;/li>
+        &lt;li>😕&lt;/li>
+        &lt;li>🙃&lt;/li>
+        &lt;li>🤑&lt;/li>
+        &lt;li>😲&lt;/li>
+        &lt;li>☹️&lt;/li>
+        &lt;li>🙁&lt;/li>
+        &lt;li>😖&lt;/li>
+        &lt;li>😞&lt;/li>
+      &lt;/ul>
+      &lt;div id="size">🙂&lt;/div>
+      &lt;div id="header">👸我的小公主💗&lt;/div>
+      &lt;div id="content">
+        &lt;div id="scroll">
+          &lt;ul id="save">&lt;/ul>
+        &lt;/div>
+      &lt;/div>
+  
+      &lt;div id="edit">
+        &lt;img src="1.jpg" id="Img">
+        &lt;input type="text" name="" id="txt">
+  
+        &lt;input type="button" name="" value="发送" id="btn">
+      &lt;/div>
+    &lt;/div>      
+  </code></pre>
+    <pre><code class="css">
+  #container {
+    width: 250px;
+    height: 350px;
+    border: 1px solid #7b6b6b;
+    margin: 0 auto;
+    position: relative;
+
+  }
+
+  #content {
+    width: 250px;
+    height: 275px;
+    border-bottom: 1px solid #ccc;
+    overflow-y: auto;
+  }
+
+  #content ul {
+    margin: 0;
+    padding: 0;
+
+  }
+
+  li {
+    list-style: none;
+  }
+
+  #Img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 10px;
+    top: 310px;
+    border-radius: 15px;
+
+  }
+
+  #txt {
+    margin: 0;
+    position: absolute;
+    left: 50px;
+    top: 315px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    width: 133px;
+    height: 18px;
+
+  }
+
+  #btn {
+    margin-right: 10px;
+    position: absolute;
+    margin: 0;
+    left: 197px;
+    top: 314px;
+
+  }
+
+  #edit {
+    background: #ece7e766;
+    width: 250px;
+    height: 50px;
+
+  }
+
+  .showTxt {
+    width: auto;
+    height: auto;
+    max-width: 230px;
+    background: #008000a8;
+    border: 0;
+    font-size: 15px;
+    color: white;
+    padding: 5px;
+    border-radius: 2px;
+    word-break: break-all;
+    list-style: none;
+    margin-top: 5px;
+    display: list-item;
+
+  }
+
+  .left {
+    text-align: left;
+    margin-left: 50px;
+    float: left;
+
+  }
+
+  .right {
+    text-align: right;
+    margin-right: 50px;
+    float: right;
+
+  }
+
+  .showImg {
+    width: 26px;
+    height: 26px;
+    border-radius: 13px;
+
+
+
+  }
+
+  .leftImg {
+    left: 10px;
+    position: absolute;
+
+  }
+
+  .rightImg {
+    right: 10px;
+    position: absolute;
+
+  }
+
+  #scroll {
+    position: relative;
+
+  }
+
+  #header {
+    text-align: center;
+    background: #ece7e766;
+    width: 250px;
+    height: 25px;
+  }
+
+  #phiz {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 160px;
+    height: 130px;
+    overflow-y: auto;
+    bottom: 40px;
+    right: 40px;
+    padding: 0;
+    border-radius: 10px;
+    overflow-x: hidden;
+    justify-content:space-around;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgba(155, 155, 155, .3);
+    display: none;
+  }
+
+  #size {
+    cursor: pointer;
+    position: absolute;
+    bottom: 15px;
+    right: 60px;
+    z-index: 99;
+  }     
+   </code></pre>
+    <pre><code class="js">
+    //获取元素
+    let oCont = document.getElementById('content')
+    let oImg = document.getElementById('Img')
+    let oTxt = document.getElementById('txt')
+    let oBtn = document.getElementById('btn')
+    let oSTxt = document.getElementsByClassName('showTxt')
+    let oSave = document.getElementById('save')
+    let header = document.getElementById('header')
+    let size = document.getElementById('size')
+    let phiz = document.getElementById('phiz')
+    let num = 0
+    let i = true
+    let liLists = document.querySelectorAll('#phiz>li')
+    liLists.forEach(li => {
+      li.onclick = function () {
+        oTxt.value += this.innerText
+      }
+    })
+
+    size.onclick = function () {
+      if (i) {
+        console.log('1')
+
+        phiz.style.display = 'flex'
+        i = !i
+      } else {
+        console.log(2)
+        phiz.style.display = 'none'
+        i = !i
+      }
+    }
+
+
+    //切换头像
+    oImg.onclick = function () {
+      num++
+      if (num % 2 == 0) {
+        oImg.src = '1.jpg'
+        header.innerText = '👸我的小公主💗'
+
+      }
+      else {
+        oImg.src = '2.jpg'
+        header.innerText = '舔🐕⑧号'
+      }
+    }
+
+    //发送事件
+    oBtn.onclick = function () {
+      addCon()
+
+    }
+
+    function addCon () {
+      //定义需要添加的元素
+      let newLi = document.createElement("li")
+      let newImg = document.createElement('img')
+      //判断聊天的对象是哪一方，文字框出现在左边还是右边
+      if (num % 2 == 0) {
+        //添加对话框
+        newLi.innerHTML = oTxt.value
+        newLi.className = 'showTxt right'
+        oSave.appendChild(newLi)
+        oTxt.value = ''
+        //添加头像
+        newImg.src = oImg.src
+        newImg.className = 'showImg rightImg'
+        newLi.appendChild(newImg)
+
+        //清除浮动
+        let div = document.createElement('div')
+        div.style = 'clear:both'
+        oSave.appendChild(div)
+      } else {
+        newLi.innerHTML = oTxt.value
+        newLi.className = 'showTxt left'
+        oSave.appendChild(newLi)
+        oTxt.value = ''
+        newImg.src = oImg.src
+        newImg.className = 'showImg leftImg'
+        newLi.appendChild(newImg)
+        let div = document.createElement('div')
+        div.style = 'clear:both'
+        oSave.appendChild(div)
+
+      }
+
+    }
+   
+  </code></pre>
+    <iframe style="margin:13px" src="../聊天框/index.html" frameborder="1" allow="fullscreen" width="550px" height="550px"
+      scrolling="no"></iframe>
+  </div>
+</body>
+<script src="./script.js"></script>
+
+</html>

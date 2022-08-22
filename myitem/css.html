@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS特效</title>
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/Top.css">
+    <link rel="stylesheet" href="./css/Topa.css">
+    <link rel="stylesheet" href="./css/bp.css">
+    <link rel="stylesheet" href="./css/Fj.css">
+    <link rel="stylesheet" href="./css/Icon/iconfont.css">
+    <link rel="stylesheet" href="./css/Kp.css">
+    <link rel="stylesheet" href="./css/B1.css">
+    <link rel="stylesheet" href="./demo/鼠标悬浮卡片/style.css">
+    <link rel="stylesheet" href="./demo/手风琴/style.css">
+    <style>
+        body {
+            background-color: #62739c;
+            height: 3800px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body .shell-main-nav ul .nav-box {
+            left: 240px;
+        }
+
+        body .shell-main-nav {
+            width: 100%;
+            height: 60px;
+            position: sticky;
+            z-index: 999;
+            top: 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 12vh;
+            background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6));
+            backdrop-filter: blur(13px);
+        }
+
+        body .shell-main-nav .logo {
+            width: 220px;
+            height: 100%;
+            position: absolute;
+            left: 5%;
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+        }
+
+        body .shell-main-nav .logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+
+        body .shell-main-nav .logo span {
+            font: 100 22px 'font';
+            letter-spacing: 2px;
+        }
+
+        body .shell-main-nav ul {
+            width: 600px;
+            height: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            position: absolute;
+            right: 5%;
+        }
+
+        body .shell-main-nav ul .nav-box {
+            position: absolute;
+            bottom: 1px;
+
+            width: 115px;
+            height: 5px;
+            border-radius: 2px;
+            z-index: -999;
+            transition: .5s;
+        }
+
+        body .shell-main-nav ul li {
+            width: 150px;
+            text-align: center;
+        }
+
+        body .shell-main-nav ul li a {
+            color: #000;
+            display: block;
+            width: 100%;
+            height: 100%;
+            line-height: 60px;
+            text-align: center;
+        }
+
+        body .shell-main-nav ul li:nth-child(2):hover~.nav-box {
+            left: 120px;
+            background-color: red;
+        }
+
+        body .shell-main-nav ul li:nth-child(3):hover~.nav-box {
+            left: 240px;
+            background-color: #8da1f8;
+        }
+
+        body .shell-main-nav ul li:nth-child(4):hover~.nav-box {
+            left: 360px;
+            background-color: #ffb1b1;
+        }
+
+        body .shell-main-nav ul li:nth-child(5):hover~.nav-box {
+            left: 480px;
+            background-color: #7df88e;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="shell-main-nav">
+        <div class="logo">
+            <a href="./index.html">
+                <img src="./image/loge.webp" alt="">
+                <span>丁丁丁哇</span>
+            </a>
+        </div>
+        <ul>
+            <li><a href="./Login2.html">登录</a></li>
+            <li><a href="./Template.html">网页模板</a></li>
+            <li><a href="css.html">CSS 特效</a></li>
+            <li><a href="./js.html">JS 组件</a></li>
+            <li><a href="game.html">JS 游戏</a></li>        
+            <div class="nav-box"></div>
+        </ul>
+    </div>
+    <div class="zd"></div>
+    <a class="zd1" href="#top">
+        <i class="iconfont icon-shang"></i>
+        <img src="./Img/DiIH6f.gif" alt="回到顶部" width="60px">
+    </a>
+    <div class="topb">
+        <div class="topbl">
+            <div class="tb1">
+                <a href="./demo/滚动视觉差/hdsc.html">滚动视觉差</a>
+            </div>
+            <div class="tb2">
+                <a href="./demo/彭科罗三角.html">彭科罗三角</a>
+            </div>
+            <div class="tb3">
+                <a href="./Html/Sc/Jzq.html">加载球</a>
+            </div>
+            <div class="tb4">
+                <a href="./demo/旋转木马/旋转木马.html">旋转木马</a>
+            </div>
+            <div class="tb5">
+                <a href="./demo/3D登录页/index.html">3D登录页</a>
+            </div>
+            <div class="tb6">
+                <a href="./Html/Sc/Ydq.html">永动球</a>
+            </div>
+            <div class="tb7">
+                <a href="./Html/Sc/Nxq1.html">粘性球</a>
+            </div>
+            <div class="tb8">
+                <a href="./Html/Sc/Nxq2.html">粘性球2.0</a>
+            </div>
+            <div class="tb9">
+                <a href="./Html/Sc/Ydfk.html">移动块</a>
+            </div>
+            <div class="tb10">
+                <a href="./demo/mihayou/html/Yuanshen.html">原神角色页面</a>
+            </div>
+
+        </div>
+        <div class="topba">
+            <div class="bp">
+
+                <div class="background"></div>
+                <div class="bpa">
+                    <div class="bpa1"></div>
+                </div>
+                <div class="bpb">
+                    <div class="bpb1"></div>
+                </div>
+                <div class="bpc">
+                    <div class="bpc1"></div>
+                </div>
+                <div class="bplogo"></div>
+            </div>
+        </div>
+        <div class="topbr"></div>
+        <div class="fj">
+        </div>
+        <div class="auto">
+            <div class="auto1">
+                <div class="autot">
+                    <a href="./xiaomi/index.html" class="autot1">
+                        <span>更多</span>
+                        <i class="iconfont icon-kucunqingkuang"></i>
+                    </a>
+                </div>
+                <div class="autob">
+                    <ul class="bz">
+                        <li><img src="./Img/11 (2).jpeg" height="470px"></li>
+                        <li><img src="./Img/11 (3).jpeg" height="470px"></li>
+                        <li><img src="./Img/11 (4).jpeg" height="470px"></li>
+                        <li><img src="./Img/11 (5).jpeg" height="470px"></li>
+                        <li><img src="./Img/11 (6).jpeg" height="470px"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="code">
+        <div class="ka" style="background-image: url(./chahua/Zeen5.jpg);"></div>
+        <div class="ka k" style="background-image: url(./chahua/Zeen4.jpg);"></div>
+        <div class="ka" style="background-image: url(./chahua/Zeen3.jpg);"></div>
+        <div class="ka" style="background-image: url(./chahua/Zeen2.jpg);"></div>
+        <div class="ka" style="background-image: url(./chahua/Zeen1.jpg);"></div>
+    </div>
+
+    <div class="btow">
+        <div class="bq">
+            <div class="qiu"></div>
+            <div class="content">
+
+                <h1>人生<br />最可怕的不是岁月变迁<br />而是在岁月中<br />你没有任何变化...</h1>
+            </div>
+        </div>
+        <div class="wz">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                我告诉你们我从来没有过备选计划。我竭尽全力去赢得健美冠军，我竭尽全力留在美国，我竭尽全力进入演艺圈并成为领军人物。无论代价是什么，我都会努力去做。我一次又一次地努力直到获得成功。在政界也和其他所有的事情都一样。所以，对我来说有备选计划是很危险的，因为它将会阻断你获得真正成功的机会。
+            </p>
+            <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I’m telling you I’ve never ever had a Plan B. I made a full
+                commitment that I’m gonna go be a body-building champion. I made a full commitment that I’m gonna be
+                in America. I made a full commitment that I’m gonna get into show business and I’m going to be a
+                leading man. No matter what it takes I will do the work. I will do the work over and over and over
+                until I get it. And the same is in politics and everything like that. So, to me, it is very
+                dangerous to have a Plan B, because you’re cutting yourself off from the chance of really
+                succeeding.</h2>
+            <span>————施瓦辛格</span>
+        </div>
+    </div>
+
+    <ul class="stretch">
+        <li><img src="./chahua/1.jpg
+          " alt=""></li>
+        <li><img src="./chahua/2.jpg" alt=""></li>
+        <li><img src="./chahua/5.jpg" alt=""></li>
+        <li><img src="./chahua/12.jpg" alt=""></li>
+        <li><img src="./chahua/333.jpg" alt=""></li>
+        <li><img src="./chahua/1200.jpg" alt=""></li>
+        <li><img src="./chahua/1201.jpg" alt=""></li>
+
+    </ul>
+
+
+</body>
+
+</html>

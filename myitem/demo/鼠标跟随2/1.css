@@ -1,0 +1,46 @@
+.shell1 {
+    position: absolute;
+    top: 3200px;
+
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.shell1>.item {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    background-color: rgb(40, 40, 40);
+    border-left: 7px solid #fff;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+
+.shell1>.item::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.shell1>.item::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}

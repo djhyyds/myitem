@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鼠标跟随2</title>
+  <link rel="stylesheet" href="./vs2015.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="./highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+  <div class="container">
+    <ul>
+      <li class="li">HTML</li>
+      <li class="li">CSS</li>
+      <li class="li">JS</li>
+    </ul>
+    <pre><code class="html">
+      &lt;div class="shell1">
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+  &lt;div class="item">&lt;/div>
+
+&lt;/div>
+  </code></pre>
+    <pre><code class="css">
+      .shell1 {
+        position: absolute;
+        top: 3200px;
+    
+        width: 400px;
+        height: 200px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        
+    }
+    
+    .shell1>.item {
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+        background-color: rgb(40, 40, 40);
+        border-left: 7px solid #fff;
+        position: relative;
+        box-sizing: border-box;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    }
+    
+    .shell1>.item::after {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: #fff;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+    }
+    
+    .shell1>.item::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: #fff;
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+    }     
+   </code></pre>
+
+    <pre><code class="js">
+      function offsetToBody(el) {
+        let x = 0
+        let y = 0
+        while (el) {
+            x += el.offsetLeft
+            y += el.offsetTop
+            el = el.offsetParent
+        }
+        return {
+            x,
+            y
+        }
+    }
+
+    document.addEventListener('mousemove', e => {
+        const item = document.querySelectorAll(".item")
+        let box = document.querySelector('.shell1')
+        const mouseX = e.clientX
+        const mouseY = e.clientY
+        console.log(e)
+        item.forEach(sqr => {
+            const obj = offsetToBody(sqr)
+            const sqrX = obj.x
+            const sqrY = obj.y
+            const diffX = mouseX - sqrX
+            const diffY = mouseY - sqrY
+            const radians = Math.atan2(diffY, diffX)
+            const angle = radians * 180 / Math.PI
+            sqr.style.transform = `rotate(${angle}deg)`
+        })
+    })
+  </code></pre>
+    <iframe style="margin:13px" src="../鼠标跟随2/1.html" frameborder="1" allow="fullscreen" width="550px" height="550px"
+      scrolling="no"></iframe>
+  </div>
+</body>
+<script src="./script.js"></script>
+
+</html>

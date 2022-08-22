@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态轮播</title>
+  <link rel="stylesheet" href="./vs2015.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="./highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <div class="container">
+    <ul>
+      <li class="li">HTML</li>
+      <li class="li">CSS</li>
+      <li class="li">JS</li>
+    </ul>
+    <pre><code class="html">
+      &lt;div class="dtlb">
+      &lt;div class="a">
+          &lt;div class="b">&lt;/div>
+          &lt;div class="c">
+              &lt;div class="d">&lt;img src="./img/d1.jpg" alt="">&lt;/div>
+              &lt;div class="d">&lt;img src="./img/d2.jpg" alt="">&lt;/div>
+              &lt;div class="d">&lt;img src="./img/d3.jpg" alt="">&lt;/div>
+              &lt;div class="d ">&lt;img src="./img/d4.jpg" alt="">&lt;/div>
+              &lt;div class="d">&lt;img src="./img/d5.jpg" alt="">&lt;/div>
+          &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  </code></pre>
+    <pre><code class="css">
+      .dtlb {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .a {
+        position: relative;
+        width: 600px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .b {
+        width: 341px;
+        transition: .4s;
+        background-size: cover;
+        background-image: url(./img/d5.jpg);
+    }
+
+    .c {
+        width: 200px;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .d {
+        position: relative;
+        width: 200px;
+        height: 110px;
+        right: 0;
+        transition: .5s;
+        overflow: hidden;
+    }
+
+    .d img {
+        position: absolute;
+        width: 200px;
+        transform: translate(0, -70px);
+        transition: .5s;
+        right: 0;
+    }
+
+    .div>.q {
+        transform: translate(0, -10px);
+    }
+
+    .d.dd {
+        opacity: 0;
+        right: 250px;
+    }
+
+    .d:hover img {
+        opacity: 0;
+        right: 250px;
+    }    
+   </code></pre>
+    <pre><code class="js">
+  let b = document.querySelector('.b')
+  let d = document.getElementsByClassName('d')
+  let time
+  let index = 0
+  let a = function () {
+      for (let i = 0; i < d.length; i++) {
+          d[i].className = 'd'
+      }
+  }
+  let aa = function () {
+      a()
+      d[index].className = 'd dd'
+  }
+
+  function ts () {
+      time = setInterval(function () {
+          aa()
+          index++
+          b.style.backgroundImage = "url(./img/d" + [index] + ".jpg)"
+          if (index == 5) {
+              index = 0
+          }
+      }, 1500)
+  }
+  for (let i = 0; i < d.length; i++) {
+      d[i].onmouseover = function () {
+          b.style.backgroundImage = "url(./img/d" + [i + 1] + ".jpg)"
+
+          a()
+          clearInterval(time)
+          index = i + 1
+          ts()
+      }
+  }
+  ts() 
+  </code></pre>
+    <iframe style="margin:13px" src="../dtlb/2.html" frameborder="1" allow="fullscreen" width="550px" height="600px"
+      scrolling="no"></iframe>
+  </div>
+</body>
+<script src="./script.js"></script>
+
+</html>

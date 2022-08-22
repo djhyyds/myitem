@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <meta name="referrer" content="no-referrer" /> -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-image: url(./chahua/51166367_p0.jpg);
+            overflow: hidden;
+            background-size: 120%;
+            /* background-size: cover; */
+            background-repeat: no-repeat;
+            transition: .3s;
+
+        }
+
+        .zw {
+
+            /* width: 480px; */
+            height: 500px;
+            background-color: rgba(225, 225, 225, .3);
+            border-radius: 12px;
+            /* 圆角 */
+            display: inline-block;
+            padding: 0 15px 0 25px;
+            /* margin-top: -277px; */
+            left: 900px;
+            top: 100px;
+            box-shadow: 0 0 2px 2px rgba(255, 255, 255, .4);
+            overflow: hidden;
+            /* 去除migan渗透 */
+            box-sizing: border-box;
+            /* 怪异盒模型 */
+            transition: .6s;
+        }
+
+        .shell {
+            top: 100px;
+            right: 150px;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h3 {
+            font-size: 36px;
+            margin-top: 40px;
+        }
+
+        .pp {
+            color: #9b9b9b;
+            font-size: 14px;
+        }
+
+
+        input {
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+            margin-right: 10px;
+        }
+
+        input:focus {
+            border-color: #2e58ff;
+            outline: none;
+        }
+
+        .k {
+            width: 343px;
+            height: 40px;
+
+
+        }
+
+        .kk {
+            width: 206px;
+            height: 40px;
+
+        }
+
+        .yzm {
+            width: 126px;
+            height: 40px;
+
+        }
+
+        a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        #zc {
+            width: 399px;
+            height: 50px;
+            border-radius: 12px;
+            border-radius: 25px;
+            margin-right: 0px;
+        }
+
+        label {
+            width: 48px;
+            height: 40px;
+            /* text-align: justify; */
+            /* text-align-last: justify; */
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 14px;
+            font-weight: 200;
+            font-family: PingFang-SC-Regular, Helvetica, "Microsoft Yahei", "微软雅黑";
+            color: #333;
+            line-height: 40px;
+        }
+
+        form {
+            padding-top: 40px;
+        }
+
+        .ppp {
+            margin-bottom: 32px;
+        }
+
+        button {
+
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, .5);
+            color: rgba(0, 0, 0, .3);
+            border: 1px;
+            margin-right: 10px;
+            width: 126px;
+            height: 40px;
+
+        }
+
+        .zh {
+            font-size: 12px;
+            color: #666;
+            margin-right: 0;
+            margin-left: 5px;
+            text-align: center;
+            width: 399px;
+            height: 15px;
+        }
+
+        ::placeholder {
+            /* color: #ccc; */
+            padding: 11px 10px;
+        }
+
+        .wz {
+            width: 322px;
+            height: 144px;
+            color: #fff;
+            position: relative;
+            margin-top: 100px;
+            display: inline-block;
+            right: 300px;
+            bottom: 200px;
+        }
+
+        h1 {
+            position: fixed;
+            top: 100px;
+            color: rgba(255, 255, 255, .5);
+        }
+
+        img {
+            width: 124px;
+            height: 40px;
+        }
+
+        .img {
+            position: relative;
+            top: 60px;
+            left: 70px;
+        }
+
+        input:-webkit-autofill {
+            box-shadow: 0 0 0px 1000px white inset;
+            -webkit-text-fill-color: #333;
+        }
+
+        button:-webkit-autofill {
+            box-shadow: 0 0 0px 1000px white inset;
+            -webkit-text-fill-color: #333;
+        }
+
+        input {
+            background-color: rgba(255, 255, 255, .4);
+            color: rgba(0, 0, 0, .3);
+        }
+
+
+        .iFrame {
+            width: 100vw;
+            height: 100vh;
+            opacity: 0;
+            position: absolute;
+            z-index: 9999;
+        }
+
+        .redtext {
+            display: block;
+            margin-top: -25px;
+            margin-bottom: 5px;
+            margin-left: 70px;
+            color: red;
+            font-size: 12px;
+            opacity: 0;
+
+        }
+
+        .top {
+            width: 300px;
+            display: flex;
+            cursor: pointer;
+            justify-content: center;
+            position: relative;
+            top: 20px;
+            margin: 10px auto;
+        }
+
+        .off,
+        .on {
+            color: #fff;
+            transition: 0.5s;
+            font-size: 30px;
+            margin: 5px;
+        }
+
+        .on {
+            opacity: .5;
+        }
+
+        .button {
+            width: 60px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, .3);
+            border-radius: 20px;
+            position: relative;
+            top: 11px;
+        }
+
+        .ball {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: .5s;
+            box-shadow: 0 0 10px #fff;
+            left: 0;
+            transform: translate(-1px);
+        }
+    </style>
+</head>
+
+<body>
+    <h1></h1>
+    <div class="shell">
+
+        <div class="zw">
+            <div class="top">
+                <span class="off">注册</span>
+                <div class="button">
+                    <div class="ball"></div>
+                </div>
+                <span class="on">登录</span>
+            </div>
+            <form action="">
+                <p class="ppp"><label for="">用户名</label><input class="k" type="text" value placeholder="请设置用户名"></p>
+                <p class="redtext">用户名错误</p>
+
+                <p class="ppp" style="transition: .6s;"><label for="">手机号</label><input class="k" type="text" value
+                        placeholder="可用于登录或找回密码"></p>
+                <p class="redtext">手机号错误</p>
+                <p class="ppp"> <label for="">密 &nbsp; &nbsp;码</label><input class="k" type="text" value
+                        placeholder="请设置登录密码"></p>
+                <p class="redtext">密码错误</p>
+                <p class="ppp" style="transition: .6s;"> <label for="">验证码</label><input class="kk" type="text" value
+                        placeholder="请输入验证码"><button type="button" id="button1">获取验证码</button></p>
+                <p class="redtext">验证码错误</p>
+                <p> <input id="zc" type="reset" value="注册"></p><br>
+                <a href="index.html">已有会员，直接进入</a>
+
+
+        </div>
+    </div>
+</body>
+<script>
+    // 换背景图片
+    let zc = document.getElementById('zc')
+    let ZW = document.querySelector('.zw')
+    let PPP = document.querySelectorAll('.ppp')
+    let button = document.querySelector(".button")
+    let ball = document.querySelector('.ball')
+    let off = document.querySelector('.off')
+    let on = document.querySelector('.on')
+    let index2 = 0
+    let body = document.body
+    let input = document.getElementsByClassName('k')
+
+    function changeI () {
+        ball.style.left = 61 + '%'
+        on.style.opacity = 1
+        off.style.opacity = .5
+        body.style.backgroundImage = "url(./chahua/89245565_p1.jpg)"
+        body.style.backgroundSize = "cover"
+        zc.value = '登录'
+    }
+
+    function changeI2 () {
+        ball.style.left = 0 + '%'
+        on.style.opacity = .5
+        off.style.opacity = 1
+        body.style.backgroundImage = "url(./chahua/51166367_p0.jpg)"
+        body.style.backgroundSize = "120%"
+        zc.value = '注册'
+    }
+
+    function Zc () {
+        PPP[1].style.display = 'none'
+        // PPP[3].style.display = 'none'
+        ZW.style.height = '430px'
+    }
+
+    function ZC () {
+        PPP[1].style.display = 'block'
+        PPP[3].style.display = 'block'
+        ZW.style.height = '500px'
+    }
+
+    function red () {
+        for (var i = 0; i < redText.length; i++) {
+            redText[i].style.opacity = '0'
+        }
+    }
+    button.addEventListener('click', () => {
+        if (index2 == 0) {
+            index2 = 1
+            changeI()
+            Zc()
+
+        } else {
+            index2 = 0
+            changeI2()
+            red()
+            ZC()
+        }
+    })
+    on.onclick = function () {
+        changeI()
+        index2 = 1
+        Zc()
+    }
+    off.onclick = function () {
+        changeI2()
+        red()
+        index2 = 0
+        ZC()
+    }
+    // 倒计时
+    function Countdown () {
+        var date = new Date('2022/10/1/00:00')
+        var res = date.getTime()
+        var date1 = new Date()
+        var res1 = date1.getTime()
+        var day = Math.floor((res - res1) / 86400000)
+
+        var hours = Math.floor(((res - res1) - day * 86400000) / 3600000)
+
+        var minutes = Math.floor((((res - res1) - day * 86400000) - hours * 3600000) / 60000)
+
+        var seconds = Math.floor(((((res - res1) - day * 86400000) - hours * 3600000) - minutes * 60000) / 1000)
+
+        var countdown = '距离毕业' + day + '天' + hours + '小时' + minutes + '分' + seconds + '秒'
+        return countdown
+    }
+    var h1 = document.getElementsByTagName('h1')[0]
+    h1.innerHTML = Countdown()
+    var timer = setInterval(() => {
+        h1.innerHTML = Countdown()
+    }, 1000)
+    let num1
+    button1.onclick = function () {
+        num1 = Math.floor(Math.random() * 9000 + 1000)
+        alert(`${num1}`)
+    }
+    var ip = document.getElementsByTagName('input')[0]
+
+    ip.onclick = function (e) {
+        ip.style.borderColor = "blue"
+        redText[0].style.opacity = '0'
+    }
+    ip.onmouseout = function () {
+        ip.style.borderColor = ""
+    }
+    var tel = document.getElementsByTagName('input')[1]
+    tel.onclick = function (e) {
+        tel.style.borderColor = "blue"
+        redText[1].style.opacity = '0'
+
+    }
+    tel.onmouseout = function () {
+        tel.style.borderColor = ""
+
+    }
+    var admin = document.getElementsByTagName('input')[2]
+
+    admin.onclick = function (e) {
+        admin.style.borderColor = "blue"
+        redText[2].style.opacity = '0'
+
+    }
+    admin.onmouseout = function () {
+        admin.style.borderColor = ""
+
+    }
+    var yan = document.getElementsByTagName('input')[3]
+
+    yan.onclick = function (e) {
+        yan.style.borderColor = "blue"
+        redText[3].style.opacity = '0'
+
+    }
+    yan.onmouseout = function () {
+        yan.style.borderColor = ""
+
+    }
+
+    var redText = document.getElementsByClassName('redtext')
+    var Ip
+    var Yan
+    var Tel
+    var Admin
+    zc.onclick = function () {
+        Yan = yan.value
+        if (num1 == Yan) {
+            if (index2 == 0) {
+                Ip = ip.value
+                Tel = tel.value
+                Admin = admin.value
+                index2 = 1
+                Zc()
+                changeI()
+            } else {
+
+                var Ip1 = ip.value
+                var Yan1 = yan.value
+                var Tel1 = tel.value
+                var Admin1 = admin.value
+                if (admin.value === Admin && Ip === Ip1) {
+                    location.href =
+                        "index.html"
+                } else {
+                    // alert('请重新输入')
+
+                }
+                if (Ip != Ip1) {
+                    // alert('用户名错误')
+                    redText[0].style.opacity = '1'
+                    ip.style.borderColor = "red"
+                }
+                if (Admin != Admin1) {
+                    // alert('密码错误')
+                    redText[2].style.opacity = '1'
+                    admin.style.borderColor = "red"
+
+                }
+            }
+        } else {
+            redText[3].style.opacity = '1'
+            yan.style.borderColor = "red"
+        }
+    }
+</script>
+
+</html>

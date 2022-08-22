@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .dtlb {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .a {
+            position: relative;
+            width: 600px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .b {
+            width: 341px;
+            transition: .4s;
+            background-size: cover;
+            background-image: url(./img/d5.jpg);
+        }
+
+        .c {
+            width: 200px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .d {
+            position: relative;
+            width: 200px;
+            height: 110px;
+            right: 0;
+            transition: .5s;
+            overflow: hidden;
+        }
+
+        .d img {
+            position: absolute;
+            width: 200px;
+            transform: translate(0, -70px);
+            transition: .5s;
+            right: 0;
+        }
+
+        .div>.q {
+            transform: translate(0, -10px);
+        }
+
+        .d.dd {
+            opacity: 0;
+            right: 250px;
+        }
+
+        .d:hover img {
+            opacity: 0;
+            right: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dtlb">
+        <div class="a">
+            <div class="b"></div>
+            <div class="c">
+                <div class="d"><img src="./img/d1.jpg" alt=""></div>
+                <div class="d"><img src="./img/d2.jpg" alt=""></div>
+                <div class="d"><img src="./img/d3.jpg" alt=""></div>
+                <div class="d "><img src="./img/d4.jpg" alt=""></div>
+                <div class="d"><img src="./img/d5.jpg" alt=""></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let b = document.querySelector('.b')
+    let d = document.getElementsByClassName('d')
+    let time
+    let index = 0
+    let a = function () {
+        for (let i = 0; i < d.length; i++) {
+            d[i].className = 'd'
+        }
+    }
+    let aa = function () {
+        a()
+        d[index].className = 'd dd'
+    }
+
+    function ts () {
+        time = setInterval(function () {
+            aa()
+            index++
+            b.style.backgroundImage = "url(./img/d" + [index] + ".jpg)"
+            if (index == 5) {
+                index = 0
+            }
+        }, 1500)
+    }
+    for (let i = 0; i < d.length; i++) {
+        d[i].onmouseover = function () {
+            b.style.backgroundImage = "url(./img/d" + [i + 1] + ".jpg)"
+
+            a()
+            clearInterval(time)
+            index = i + 1
+            ts()
+        }
+    }
+    ts()
+</script>
+
+</html>

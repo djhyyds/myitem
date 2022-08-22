@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./代码块.html/vs2015.min.css">
+  <script src="./代码块.html/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+    body {
+      flex-direction: column;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    body>ul {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .container {
+      cursor: pointer;
+      display: none;
+    }
+
+    body>ul>li:first-child {
+      background: linear-gradient(200deg, #ec77ab, #7873f5);
+    }
+
+    ul {
+      cursor: pointer;
+      margin: 13px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    li {
+      border-radius: 20px;
+      margin-right: 10px;
+      width: 100px;
+      height: 50px;
+      color: antiquewhite;
+      background: rgb(62, 132, 244);
+      list-style: none;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    /* .container li:first-child {
+      background-color: #0ff;
+    } */
+
+
+
+    body .container:first-child {
+      display: flex;
+    }
+
+    div {
+      overflow: hidden;
+    }
+
+    pre code {
+      border-radius: 20px;
+      width: 600px;
+      height: 500px;
+      margin: 10px;
+    }
+
+    pre {
+      background-color: rgba(222, 232, 240, 0.991);
+      display: none;
+    }
+
+    pre:nth-of-type(1) {
+      display: block;
+    }
+
+    .container pre:first-child {
+      display: block;
+    }
+
+    iframe {
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li class="change">3d轮播普通版</li>
+    <li class="change">3d轮播可回收</li>
+  </ul>
+  <div class="container">
+    <ul>
+      <li class="li">HTML</li>
+      <li class="li">CSS</li>
+      <li class="li">JS</li>
+    </ul>
+    <pre><code class="html">
+    &lt;a href="">&lt;button>重播&lt;/button>&lt;/a>
+    &lt;div class="wrapper">
+        &lt;div class="slide">&lt;img src="../../chahua/d1.jpg" alt="">&lt;/div>
+        &lt;div class="slide">&lt;img src="../../chahua/d2.jpg" alt="">&lt;/div>
+        &lt;div class="slide">&lt;img src=" ../../chahua/d3.jpg" alt="">&lt;/div>
+        &lt;div class="slide"> &lt;img src="../../chahua/x1.jpg" alt="">&lt;/div>
+        &lt;div class="slide">&lt;img src="../../chahua/x2.jpg" alt="">&lt;/div>
+    &lt;/div>
+  </code></pre>
+    <pre><code class="css">
+ .wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  width: 80%;
+  height: 80%;
+  transition: opacity .3s ease;
+}
+
+.wrapper .slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  width: 40%;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.wrapper .slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
+   </code></pre>
+    <pre><code class="js">
+    let wrapper = document.querySelector('.wrapper')
+    // step:控制当前展示哪一个  autoTimer:自动轮播定时器
+    let step = 5,
+        autoTimer = null,
+        zIndex = 0
+    let source = Array.from(document.querySelectorAll('.slide'))
+    
+    // 数据渲染  inital=true是第一次渲染
+    const render = function render (inital) {
+        len = source.length
+        // 控制slide的样式
+        let temp1 = step - 2,
+            temp2 = step - 1,
+            temp3 = step,
+            temp4 = step + 1,
+            temp5 = step + 2
+        if (temp1 < 0) temp1 = len + temp1
+        if (temp2 < 0) temp2 = len + temp2
+        if (temp4 > len - 1) temp4 = temp4 - len
+        if (temp5 > len - 1) temp5 = temp5 - len
+        source.forEach((item, index) => {
+            let transform = 'translate(-50%, -50%) scale(0.7)',
+                className = 'slide'
+            if (zIndex < -10) return
+            zIndex--
+            switch (index) {
+                case temp3:
+                    transform = 'translate(-50%, -50%) scale(1)'
+                    zIndex = 3
+                    className = 'slide active'
+                    break
+                case temp1:
+                    transform = 'translate(-195%, -50%) scale(0.7)'
+                    zIndex = 1
+                    break
+                case temp2:
+                    transform = 'translate(-130%, -50%) scale(0.85)'
+                    zIndex = 2
+                    break
+                case temp4:
+                    transform = 'translate(30%, -50%) scale(0.85)'
+                    zIndex = 2
+                    break
+                case temp5:
+                    transform = 'translate(95%, -50%) scale(0.7)'
+                    zIndex = 1
+                    break
+            }
+            item.sty = `transform:${transform};z-index:${zIndex};`
+            item.className = className
+        })
+    
+        // 非第一次执行，修改slide样式
+        if (!inital) {
+            source.forEach((item, index) => {
+                let cur = slides[index]
+                cur.style = item.sty
+                cur.className = item.className
+            })
+            return
+        }
+    
+        // 数据绑定
+        slides = wrapper.querySelectorAll('.slide')
+    }
+    
+    // 自动轮播
+    const autoMove = function autoMove () {
+        autoTimer = setInterval(() => {
+            step--
+            if (step >len-1) step = 0
+            render()
+        }, 1000)
+    }
+    // 数据渲染
+    render(true)
+    
+    // 开启自动轮播
+    autoMove()
+  </code></pre>
+    <iframe style="margin:13px" src="./xzmmuma/3d轮播.html" frameborder="1" allow="fullscreen" width="700px"
+      height="550px" scrolling="no"></iframe>
+  </div>
+  <div class="container">
+    <ul>
+      <li class="li">HTML</li>
+      <li class="li">CSS</li>
+      <li class="li">JS</li>
+    </ul>
+    <pre><code class="html">
+    &lt;div class="wrapper">
+        &lt;div class="slide">&lt;img src="../../chahua/d1.jpg" alt="">&lt;/div>
+        &lt;div class="slide">&lt;img src="../../chahua/d2.jpg" alt="">&lt;/div>
+        &lt;div class="slide">&lt;img src=" ../../chahua/d3.jpg" alt="">&lt;/div>
+        &lt;div class="slide"> &lt;img src="../../chahua/x1.jpg" alt="">&lt;/div>
+        &lt;div class="slide">&lt;img src="../../chahua/x2.jpg" alt="">&lt;/div>
+    &lt;/div>
+  </code></pre>
+    <pre><code class="css">
+ .wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  width: 80%;
+  height: 80%;
+  transition: opacity .3s ease;
+}
+
+.wrapper .slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  width: 40%;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.wrapper .slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
+   </code></pre>
+    <pre><code class="js">
+      let wrapper = document.querySelector('.wrapper'),
+      source = Array.from(wrapper.querySelectorAll('.slide')),
+      slides = []
+  // step:控制当前展示哪一个  autoTimer:自动轮播定时器
+  let step = 0,
+      autoTimer = null
+  // 数据渲染  inital=true是第一次渲染
+  const render = function render (inital) {
+      len = source.length
+      // 控制slide的样式
+      let temp1 = step - 2,
+          temp2 = step - 1,
+          temp3 = step,
+          temp4 = step + 1,
+          temp5 = step + 2
+      if (temp1 < 0) temp1 = len + temp1
+      if (temp2 < 0) temp2 = len + temp2
+      if (temp4 > len - 1) temp4 = temp4 - len
+      if (temp5 > len - 1) temp5 = temp5 - len
+      source.forEach((item, index) => {
+          let transform = 'translate(-50%, -50%) scale(0.55)',
+              zIndex = 0,
+              className = 'slide'
+          switch (index) {
+              case temp3:
+                  transform = 'translate(-50%, -50%) scale(1)'
+                  zIndex = 3
+                  className = 'slide active'
+                  break
+              case temp1:
+                  transform = 'translate(-195%, -50%) scale(0.7)'
+                  zIndex = 1
+                  break
+              case temp2:
+                  transform = 'translate(-130%, -50%) scale(0.85)'
+                  zIndex = 2
+                  break
+              case temp4:
+                  transform = 'translate(30%, -50%) scale(0.85)'
+                  zIndex = 2
+                  break
+              case temp5:
+                  transform = 'translate(95%, -50%) scale(0.7)'
+                  zIndex = 1
+                  break
+          }
+          item.sty = 'transform:$ {transform}; z - index:$ {zIndex};'
+          item.className = className
+          //切换
+          item.onclick = () => {
+              step = index
+              render()
+          }
+      })
+      // 非第一次执行,修改slide样式
+      if (!inital) {
+          source.forEach((item, index) => {
+              let cur = slides[index]
+              cur.style = item.sty
+              cur.className = item.className
+          })
+          return
+      }
+      // 数据绑定
+      slides = wrapper.querySelectorAll('.slide')
+  }
+  // 自动轮播
+  const autoMove = function autoMove () {
+      autoTimer = setInterval(() => {
+          step++
+          if (step < 0) step = 0
+          render()
+      }, 1000)
+  }
+  // 数据渲染
+  render(true)
+  // 开启自动轮播
+  autoMove()
+  </code></pre>
+    <iframe style="margin:13px" src="./xzmmuma/高级3d轮播.html" frameborder="1" allow="fullscreen" width="700px"
+      height="550px" scrolling="no"></iframe>
+  </div>
+</body>
+<script>
+  let li = Array.from(document.querySelectorAll('.li')),
+    pre = Array.from(document.querySelectorAll('pre')),
+    changes = Array.from(document.querySelectorAll('.change')),
+    Src = document.querySelector('iframe').src,
+    html = document.querySelector('.html').innerText,
+    css = document.querySelector('.css'),
+    js = document.querySelector('.js'),
+    container = document.querySelectorAll('.container')
+  console.log(Src, html, css, js)
+  container[0].style.display = 'flex'
+  li.forEach((item, index) => {
+    item.onclick = () => {
+      pre.forEach(item => item.style.display = 'none')
+      li.forEach(item => item.style.background = ' rgb(62, 132, 244)')
+      pre[index].style.display = 'block'
+      item.style.background = 'linear-gradient(200deg, #ec77ab, #7873f5'
+    }
+  })
+  changes.forEach((item, index) => {
+
+    item.onclick = () => {
+      changes.forEach(item => item.style.background = ' rgb(62, 132, 244)')
+      container.forEach(item => item.style.display = 'none')
+      item.style.background = 'linear-gradient(200deg, #ec77ab, #7873f5'
+      container[index].style.display = 'flex'
+      let { src, js, html, css } = data[index]
+      Src = src
+      html = html
+      css.innerText = css
+      js.innerText = js
+      console.log(Src)
+    }
+  })
+</script>
+
+</html>

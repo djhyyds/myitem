@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>珠峰零基础高薪就业班</title>
+	<!-- IMPORT CSS -->
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		li {
+			list-style: none;
+		}
+
+		.watch {
+			margin: 0 auto;
+			width: 1226px;
+			display: flex;
+			justify-content: space-around;
+		}
+
+		button {
+			display: block;
+			width: 50px;
+			height: 25px;
+			border-radius: 12px;
+			background-color: aqua;
+			text-align: center;
+			position: absolute;
+			left: 0;
+			bottom: 50px;
+		}
+
+		.box {
+			width: 296px;
+			height: 285px;
+			position: relative;
+			z-index: 0;
+		}
+
+		.box img {
+			width: 100%;
+		}
+
+		.mask {
+			top: 0;
+			left: 0;
+			position: fixed;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0, 0, 0, .4);
+			z-index: 100;
+			display: none;
+		}
+
+		.video {
+			width: 880px;
+			height: 495px;
+			display: flex;
+			flex-direction: column;
+			position: fixed;
+			top: 10%;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 1000;
+			display: none;
+		}
+
+		.video h3 {
+			line-height: 60px;
+			display: block;
+			height: 60px;
+			margin: 0;
+			background-color: #fff;
+		}
+
+		.video span {
+			display: block;
+			text-align: center;
+			line-height: 30px;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+
+		.video span:hover {
+			background-color: bisque;
+		}
+	</style>
+</head>
+
+<body>
+	<ul class="watch">
+		<div class="mask"></div>
+		<li class="box">
+			<img
+				src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e74c4ff741bcdfc5b28a48a43e4edc6d.jpg?thumb=1&w=370&h=225&f=webp&q=90"
+				alt="">
+			<h3>2021年春季新品发布会</h3>
+			<button data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/812358b69886e576c66a01f1f00affe9.mp4">播放</button>
+		</li>
+		<li class="box">
+			<img
+				src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/96563e75833ba4563bd469dd28203b09.jpg?thumb=1&w=370&h=225&f=webp&q=90"
+				alt="">
+			<h3>
+				Redmi 10X系列发布会
+			</h3>
+			<button data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/11c70c96529b6e6938567ec1aa0910e0.mp4">播放</button>
+		</li>
+		<li class="box">
+			<img
+				src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/101b19aca4bb489bcef0f503e44ec866.jpg?thumb=1&w=370&h=225&f=webp&q=90"
+				alt="">
+			<h3>
+				小米10 青春版 发布会
+			</h3>
+			<button data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7cdabcaa763392c86b944eaf4e68d6a3.mp4">播放</button>
+		</li>
+		<li class="box">
+			<img
+				src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2fd26bb99b723337a2f8eaba84f7d5bb.jpg?thumb=1&w=370&h=225&f=webp&q=90"
+				alt="">
+			<h3>
+				小米10 8K手机拍大片
+			</h3>
+			<button data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e25d81c4922fca5ebe51877717ef9b76.mp4">播放</button>
+		</li>
+		<div class="video">
+			<h3>2021年春季新品发布会</h3>
+			<video src="" poster="" controls autoplay></video>
+			<span class="close">X</span>
+		</div>
+	</ul>
+</body>
+<script>
+	(function () {
+		let btn = Array.from(document.querySelectorAll('button')),
+			mask = document.querySelector('.mask'),
+			video = document.querySelector('.video'),
+			close = video.querySelector('.close'),
+			h3 = video.querySelector('h3'),
+			dataSrc = null,
+			H3 = null
+		src = video.querySelector('video')
+		btn.forEach((item => item.onclick = function () {
+			dataSrc = this.getAttribute('data-src')
+			H3 = this.previousElementSibling.innerText
+			h3.innerHTML = H3
+			video.style.display = 'flex'
+			mask.style.display = 'block'
+			src.src = `${dataSrc}`
+		}))
+
+		close.onclick = function () {
+			video.style.display = 'none'
+			mask.style.display = 'none'
+			src.src = ``
+		}
+	})()
+</script>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鼠标跟随</title>
+  <link rel="stylesheet" href="./vs2015.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="./highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+  <div class="container">
+    <ul>
+      <li class="li">HTML</li>
+      <li class="li">CSS</li>
+      <li class="li">JS</li>
+    </ul>
+    <pre><code class="html">
+      &lt;div class="gensui">&lt;/div>
+  </code></pre>
+    <pre><code class="css">
+      body {
+        height: 5000px;
+    }
+
+    .gensui {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-image: url(./goat.gif);
+        background-size: cover;
+    }
+   </code></pre>
+    <pre><code class="js">
+let img = document.querySelector('.gensui')
+// 定义小图片旋转角度
+let deg = 0;
+//定义小图片位于网页左侧的距离
+let imgx = 0;
+//定义小图片位于网页顶部的距离
+let imgy = 0;
+//定义小图片x轴
+let imgl = 0;
+//定义小图片y轴
+let imgt = 0;
+//定义小图片反转的角度
+let y = 0;
+//定义一个定时器
+let index = 0;
+window.addEventListener('mousemove', move)
+
+function move(xyz) {
+    //获取网页左侧距里图片距离
+    imgx = xyz.x - img.offsetLeft - img.clientWidth / 2
+    //获取网页顶部距离图片位置
+    imgy = xyz.pageY - img.offsetTop - img.clientHeight / 2
+    //逃入公式，定义图片旋转角度
+    deg = 360 * Math.atan(imgy / imgx) / (2 * Math.PI)
+    //每当鼠标移动的时候重置index
+    index = 0;
+    //定义当前鼠标位置
+    let x = event.clientX;
+    //当鼠标的x轴大于图片的时候，小羊就要对着鼠标，所以需要将图片反转
+    //，否则不用
+    if (img.offsetLeft < x) {
+        y = -180
+    } else {
+        y = 0;
+    }
+}
+setInterval(() => {
+    //设置小图片的旋转和反转
+  img.style.transform = "rotateZ(" + deg + "deg)rotateY(" + y + "deg)"
+    index++
+    //设置小图片位置和速度，并判断小图片到达鼠标位置时停止移动
+    if (index < 50) {
+        imgl += imgx / 50
+        imgt += imgy / 50
+    }
+    img.style.left = imgl + "px";
+    img.style.top = imgt + "px";
+}, 10)
+  </code></pre>
+    <iframe style="margin:13px" src="../鼠标跟随/1.html" frameborder="1" allow="fullscreen" width="550px" height="550px"
+      scrolling="no"></iframe>
+  </div>
+</body>
+<script src="./script.js"></script>
+
+</html>

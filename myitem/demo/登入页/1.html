@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .shell {
+            width: 300px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+            /* 给最外层加一个透视，否则接下来的翻转没有3d效果*/
+        }
+
+        .top {
+            width: 300px;
+            display: flex;
+            cursor: pointer;
+            justify-content: center;
+        }
+
+        .off,
+        .on {
+            color: #fff;
+            transition: 0.5s;
+            font: 300 20px;
+        }
+
+        .on {
+            opacity: .5;
+        }
+
+        .button {
+            width: 60px;
+            height: 25px;
+            background-color: rgb(255, 235, 167);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .ball {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: rgb(45, 45, 56);
+            border-radius: 50%;
+            transition: .5s;
+            box-shadow: 0 0 10px #000;
+            left: 0;
+            transform: translate(-1px);
+        }
+
+        .bottom {
+            width: 300px;
+            background-color: aquamarine;
+            height: 250px;
+            transform-style: preserve-3d;
+            /* 使元素呈现3d效果 */
+            position: relative;
+            transition: .7s;
+            border-radius: 5px;
+        }
+
+        .bottom>div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+
+        }
+
+        .bottom>div h2 {
+            color: #fff;
+        }
+
+        .bottom>div input {
+            width: 80px;
+            height: 30px;
+            color: #333;
+            font-size: 15px;
+            background-color: rgb(255, 235, 167);
+            border-radius: 4px;
+            transition: .3s;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .bottom>div button:hover {
+            box-shadow: 0 0 10px rgb(255, 235, 167);
+        }
+
+        .signin {
+            transform: translateZ(70px);
+        }
+
+        .signup {
+            transform: translateZ(-70px) rotateY(180deg);
+            position: absolute;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <div class="top">
+            <span class="off">sign in</span>
+            <div class="button">
+                <div class="ball"></div>
+            </div>
+            <span class="on">sign up</span>
+        </div>
+        <div class="bottom">
+            <div class="signin">
+                <h2>sign in</h2>
+                <input type="text" placeholder="username">
+                <input type="text" placeholder="password">
+                <button>go</button>
+            </div>
+            <div class="signup">
+                <h2>sign up</h2>
+                <input type="text" placeholder="username">
+                <input type="text" placeholder="password">
+                <input type="text" placeholder="confirm password">
+                <button>go</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let button = document.querySelector(".button")
+    let ball = document.querySelector('.ball')
+    let bottom = document.querySelector('.bottom')
+    let off = document.querySelector('.off')
+    let on = document.querySelector('.on')
+    let index2 = 0;
+    button.addEventListener('click', () => {
+        if (index2 == 0) {
+            index2 = 1
+            ball.style.left = 61 + '%'
+            on.style.opacity = 1
+            off.style.opacity = .5
+            bottom.style.transform = 'rotateY(180deg)'
+        } else {
+            index2 = 0
+            ball.style.left = 0 + '%'
+            on.style.opacity = .5
+            off.style.opacity = 1
+            bottom.style.transform = 'rotateY(0)'
+        }
+    })
+</script>
+
+</html>
